@@ -36,6 +36,7 @@
 
           modules = [
             ./hosts/msi-laptop/configuration.nix
+            ./nixos-modules
           ];
         };
       };
@@ -47,6 +48,7 @@
 
           modules = [
             ./hosts/msi-laptop/home.nix
+            ./home-modules
           ];
         };
       };

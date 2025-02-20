@@ -8,8 +8,11 @@
   home.packages = with pkgs; [
     neofetch
     htop
-    google-chrome
   ];
 
+  # Включение браузеров из общих модулей
+  google-chrome.enable = true;
+
   programs.bash.enable = true;
+  programs.git.enable = true;
 }
