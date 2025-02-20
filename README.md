@@ -9,3 +9,11 @@
 ```bash
 sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount ./disko.nix
 ```
+
+```bash
+sudo nixos-rebuild switch --flake .#msi-laptop
+```
+
+```bash
+home-manager switch --flake .#sdev@msi-lapto
+```
