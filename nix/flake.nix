@@ -21,7 +21,7 @@
 
       pkgs = import inputs.nixpkgs {
         inherit system;
-        config.allowUnfree = true; 
+        config.allowUnfree = true;
       };
     in
     {
@@ -44,7 +44,7 @@
         # Конфигурация HomeManager для пользователя sdev на хосте msi-laptop
         "sdev@msi-laptop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          
+
           modules = [
             ./hosts/msi-laptop/home.nix
           ];

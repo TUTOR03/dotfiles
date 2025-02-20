@@ -15,5 +15,5 @@ sudo nixos-rebuild switch --flake .#msi-laptop
 ```
 
 ```bash
-home-manager switch --flake .#sdev@msi-lapto
+home-manager switch --flake .#sdev@msi-laptop
 ```

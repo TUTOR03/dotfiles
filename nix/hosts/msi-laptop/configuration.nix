@@ -18,10 +18,16 @@
 
   users.users.sdev = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
@@ -33,5 +39,6 @@
 
   environment.systemPackages = with pkgs; [
     wget
+    home-manager
   ];
 }
