@@ -11,6 +11,7 @@
   ];
 
   # Включение браузеров из общих модулей
+  firefox.enable = true;
   google-chrome.enable = true;
 
   programs.bash.enable = true;

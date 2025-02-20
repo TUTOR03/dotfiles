@@ -13,9 +13,6 @@
     services.xserver.displayManager.gdm.enable = true;
     services.xserver.desktopManager.gnome.enable = true;
 
-    # Поддержка тачпада
-    services.xserver.libinput.enable = true;
-
     # Указываем видеодрайвер
     services.xserver.videoDrivers = [ "nvidia" ];
     hardware.nvidia = {
@@ -39,7 +36,7 @@
     };
 
     # Раскладка клавиатуры
-    services.xserver.layout = "us,ru";
-    services.xserver.xkbOptions = "grp:alt_shift_toggle";
+    services.xserver.xkb.layout = "us,ru";
+    services.xserver.xkb.options = "grp:alt_shift_toggle";
   };
 }

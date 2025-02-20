@@ -35,4 +35,5 @@
 
   # Включение сервисов из общих модулей
   xserver.enable = true;
+  libinput.enable = true;
 }
