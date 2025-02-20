@@ -32,7 +32,7 @@
         # Inter GPU
         intelBusId = "PCI:0:2:0";
         # NVIDIA GPU
-        nvidiaBusId = "PCI:2e:0:0";
+        nvidiaBusId = "PCI:46:0:0";
       };
 
       package = config.boot.kernelPackages.nvidiaPackages.stable;
