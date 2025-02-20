@@ -38,8 +38,6 @@
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
 
-    services.xserver.videoDrivers = [ "nvidia" ];
-
     # Раскладка клавиатуры
     services.xserver.layout = "us,ru";
     services.xserver.xkbOptions = "grp:alt_shift_toggle";
