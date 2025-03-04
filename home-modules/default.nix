@@ -7,5 +7,6 @@
     ./dev/git.nix
     ./dev/ssh.nix
     ./editors/vscode/vscode.nix
+    ./langs/nodejs.nix
   ];
 }

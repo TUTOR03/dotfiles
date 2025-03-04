@@ -20,6 +20,12 @@
   # Включаем редакторы кода
   vscode.enable = true;
 
+  # Включаем языки
+  nodejs = {
+    enable = true;
+    versions = with pkgs; [ nodejs_20 ];
+  };
+
   # Включение браузеров из общих модулей
   firefox.enable = true;
   google-chrome.enable = true;
