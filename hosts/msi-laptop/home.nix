@@ -24,5 +24,12 @@
   firefox.enable = true;
   google-chrome.enable = true;
 
-  programs.bash.enable = true;
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      cls = "clear";
+      rebuild = "sudo nixos-rebuild switch --flake .#msi-laptop";
+      "rebuild-home" = "home-manager switch --flake .#sdev@msi-laptop";
+    };
+  };
 }
