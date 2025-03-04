@@ -19,7 +19,7 @@
         {
           condition = "hasconfig:remote.*.url:git@github.com:**";
           contents = {
-            core.sshCommand = "ssh -i ~/.ssh/id_rsa_github";
+            core.sshCommand = "ssh -i ~/.ssh/id_rsa_msi_laptop_github";
           };
         }
       ];
