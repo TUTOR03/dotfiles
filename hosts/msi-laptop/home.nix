@@ -25,6 +25,7 @@
     enable = true;
     versions = with pkgs; [ nodejs_20 ];
   };
+  rust.enable = true;
 
   # Включение браузеров из общих модулей
   firefox.enable = true;

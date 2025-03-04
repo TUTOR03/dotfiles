@@ -8,5 +8,6 @@
     ./dev/ssh.nix
     ./editors/vscode/vscode.nix
     ./langs/nodejs.nix
+    ./langs/rust.nix
   ];
 }
