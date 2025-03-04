@@ -3,6 +3,12 @@
 {
   options = {
     git.enable = lib.mkEnableOption "enables git";
+
+    git.sshKeyPathGithub = lib.mkOption {
+      type = lib.types.str;
+      default = "";
+      description = "Path to SSH key for GitHub";
+    };
   };
 
   config = lib.mkIf config.git.enable {
@@ -16,12 +22,12 @@
       };
 
       includes = [
-        {
+        (lib.optional (config.git.sshKeyPathGithub != "") {
           condition = "hasconfig:remote.*.url:git@github.com:**";
           contents = {
-            core.sshCommand = "ssh -i ~/.ssh/id_rsa_msi_laptop_github";
+            core.sshCommand = "ssh -i ${config.git.sshKeyPathGithub}";
           };
-        }
+        })
       ];
     };
   };

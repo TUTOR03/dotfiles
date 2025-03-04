@@ -12,7 +12,10 @@
 
   # Включение ssh и git
   ssh.enable = true;
-  git.enable = true;
+  git = {
+    enable = true;
+    sshKeyPathGithub = "~/.ssh/id_rsa_msi_laptop_github";
+  };
 
   # Включаем редакторы кода
   vscode.enable = true;
