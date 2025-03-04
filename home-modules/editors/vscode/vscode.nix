@@ -28,7 +28,6 @@
         ms-vscode.makefile-tools # Makefile
         redhat.vscode-yaml # YAML
         tamasfe.even-better-toml # TOML
-        shanoor.vscode-nginx # Nginx
         slevesque.shader # Shader
         racczzalan.webgl-glsl-editor # WebGL GLSL
         vadimcn.vscode-lldb # LLDB (отладка C/C++/Rust)
