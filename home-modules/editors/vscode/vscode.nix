@@ -19,7 +19,6 @@
         svelte.svelte-vscode # Svelte
         astro-build.astro-vscode # Astro
         prisma.prisma # Prisma
-        nrwl.angular-console # Angular
 
         # Инструменты разработки
         dbaeumer.vscode-eslint # ESLint
