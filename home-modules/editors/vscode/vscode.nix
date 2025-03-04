@@ -28,15 +28,15 @@
         ms-vscode.makefile-tools # Makefile
         redhat.vscode-yaml # YAML
         tamasfe.even-better-toml # TOML
-        slevesque.shader # Shader
-        racczzalan.webgl-glsl-editor # WebGL GLSL
+#        slevesque.shader # Shader
+#        racczzalan.webgl-glsl-editor # WebGL GLSL
         vadimcn.vscode-lldb # LLDB (отладка C/C++/Rust)
-        probe-rs.probe-rs-debugger # Probe-rs (отладка Rust для embedded)
+#        probe-rs.probe-rs-debugger # Probe-rs (отладка Rust для embedded)
 
         # Git и GitHub
         eamodio.gitlens # GitLens
         mhutchie.git-graph # Git Graph
-        me-dutour-mathieu.vscode-github-actions # GitHub Actions
+#        me-dutour-mathieu.vscode-github-actions # GitHub Actions
 
         # UI и иконки
         pkief.material-icon-theme # Material Icon Theme
@@ -45,15 +45,15 @@
 
         # Дополнительные инструменты
         adpyke.codesnap # CodeSnap (скриншоты кода)
-        adpyke.vscode-sql-formatter # SQL Formatter
+#        adpyke.vscode-sql-formatter # SQL Formatter
         davidanson.vscode-markdownlint # Markdown Lint
         ms-vscode.hexeditor # Hex Editor
         ms-vsliveshare.vsliveshare # Live Share
-        rangav.vscode-thunder-client # Thunder Client (HTTP-клиент)
+#        rangav.vscode-thunder-client # Thunder Client (HTTP-клиент)
         yzane.markdown-pdf # Markdown to PDF
-        medo64.render-crlf # Render CRLF
-        mkxml.vscode-filesize # File Size
-        lior-chamla.google-fonts # Google Fonts
+#        medo64.render-crlf # Render CRLF
+#        mkxml.vscode-filesize # File Size
+#        lior-chamla.google-fonts # Google Fonts
       ];
     };
 
