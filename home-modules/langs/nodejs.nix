@@ -12,12 +12,12 @@
 
   config = lib.mkIf config.nodejs.enable {
     home.packages = lib.flatten (
-      lib.mapAttrsToList (pkg: [
+      lib.forEach config.nodejs.versions (pkg: [
         pkg
         (pkg.override { npm = pkgs.npm; })
         pkgs.yarn
         pkgs.pnpm
-      ]) config.nodejs.versions
+      ])
     );
 
     # Алиасы для конкретных версий
@@ -27,10 +27,10 @@
         value = "${pathPkg}/bin/${cmd}";
       };
     in lib.listToAttrs (
-      (lib.mapAttrsToList (pkg: mkAlias "node" pkg pkg) config.nodejs.versions) ++
-      (lib.mapAttrsToList (pkg: mkAlias "npm" pkg pkg) config.nodejs.versions) ++
-      (lib.mapAttrsToList (pkg: mkAlias "yarn" pkg pkgs.yarn) config.nodejs.versions) ++
-      (lib.mapAttrsToList (pkg: mkAlias "pnpm" pkg pkgs.pnpm) config.nodejs.versions)
+      (lib.forEach config.nodejs.versions (pkg: mkAlias "node" pkg pkg)) ++
+      (lib.forEach config.nodejs.versions (pkg: mkAlias "npm" pkg pkg)) ++
+      (lib.forEach config.nodejs.versions (pkg: mkAlias "yarn" pkg pkgs.yarn)) ++
+      (lib.forEach config.nodejs.versions (pkg: mkAlias "pnpm" pkg pkgs.pnpm))
     );
   };
 }
