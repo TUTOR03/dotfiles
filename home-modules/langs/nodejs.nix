@@ -14,7 +14,6 @@
     home.packages = lib.flatten (
       lib.forEach config.nodejs.versions (pkg: [
         pkg
-        (pkg.override { npm = pkgs.npm; })
         pkgs.yarn
         pkgs.pnpm
       ])
