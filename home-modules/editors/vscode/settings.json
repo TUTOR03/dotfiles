@@ -1,0 +1,211 @@
+{
+  // Форматирование и Prettier
+  "prettier.useTabs": false,
+  "prettier.semi": false,
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  "prettier.arrowParens": "always",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
+
+  // Внешний вид редактора
+  "editor.fontSize": 16,
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.wordWrap": "on",
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "editor.cursorBlinking": "expand",
+  "editor.glyphMargin": true,
+  "editor.linkedEditing": true,
+  "editor.padding.top": 16,
+  "editor.occurrencesHighlight": "off",
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": false
+  },
+  "editor.unicodeHighlight.allowedLocales": {
+    "en": true,
+    "ru": true
+  },
+  "editor.detectIndentation": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "editor.renderWhitespace": "none",
+  "editor.stickyScroll.enabled": false,
+  "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "window.titleBarStyle": "custom",
+  "workbench.colorTheme": "Monokai",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "none",
+
+  // Терминал
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.fontSize": 16,
+
+  // Навигация (Breadcrumbs)
+  "breadcrumbs.icons": true,
+  "breadcrumbs.showKeys": true,
+  "breadcrumbs.showFiles": true,
+  "breadcrumbs.symbolPath": "on",
+  "breadcrumbs.showArrays": true,
+  "breadcrumbs.showBooleans": true,
+  "breadcrumbs.showClasses": true,
+  "breadcrumbs.showConstants": true,
+  "breadcrumbs.showConstructors": true,
+  "breadcrumbs.showEnumMembers": true,
+  "breadcrumbs.showEvents": true,
+  "breadcrumbs.showFields": true,
+  "breadcrumbs.showEnums": true,
+  "breadcrumbs.showFunctions": true,
+  "breadcrumbs.showInterfaces": true,
+  "breadcrumbs.showMethods": true,
+  "breadcrumbs.showModules": true,
+  "breadcrumbs.showNamespaces": true,
+  "breadcrumbs.showNull": true,
+  "breadcrumbs.showNumbers": true,
+  "breadcrumbs.showObjects": true,
+  "breadcrumbs.showOperators": true,
+  "breadcrumbs.showPackages": true,
+  "breadcrumbs.showProperties": true,
+  "breadcrumbs.showStrings": true,
+  "breadcrumbs.showStructs": true,
+  "breadcrumbs.showTypeParameters": true,
+  "breadcrumbs.showVariables": true,
+
+  // SSH
+  "remote.SSH.remotePlatform": {
+    "adm512": "linux",
+    "adm512_raw": "linux",
+    "10.0.20.5": "linux"
+  },
+  "remote.SSH.serverPickPortsFromRange": {
+    "adm512": "8000-8000",
+    "adm512_raw": "8000-8000"
+  },
+  "remote.SSH.remoteServerListenOnSocket": false,
+  "remote.SSH.useExecServer": false,
+  "remote.SSH.useLocalServer": false,
+  "remote.SSH.enableDynamicForwarding": false,
+  "remote.SSH.enableAgentForwarding": false,
+  "remote.SSH.localServerDownload": "always",
+  "remote.SSH.connectTimeout": 60,
+
+  // Git
+  "git.mergeEditor": false,
+  "gitlens.views.remotes.branches.layout": "list",
+
+  // JSON
+  "json.schemaDownload.enable": true,
+  "http.proxySupport": "fallback",
+
+  // Markdown
+  "markdown-pdf.displayHeaderFooter": false,
+
+  // Rust
+  "[rust]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "rust-analyzer.rustfmt.extraArgs": [
+    "--config",
+    "tab_spaces=2,hard_tabs=false,max_width=100"
+  ],
+  "rust-analyzer.inlayHints.chainingHints.enable": false,
+  "rust-analyzer.inlayHints.closingBraceHints.enable": false,
+  "rust-analyzer.completion.callable.snippets": "none",
+  "rust-analyzer.check.command": "clippy",
+
+  // CSS/SCSS
+  "stylelint.validate": ["css", "scss"],
+
+  // JavaScript/TypeScript
+  "typescript.suggest.paths": false,
+  "javascript.suggest.paths": false,
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.referencesCodeLens.showOnAllFunctions": true,
+  "typescript.referencesCodeLens.enabled": true,
+  "javascript.referencesCodeLens.showOnAllFunctions": true,
+  "javascript.referencesCodeLens.enabled": true,
+
+  // Svelte
+  "svelte.ask-to-enable-ts-plugin": false,
+  "svelte.enable-ts-plugin": true,
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+
+  // PHP
+  "php.format.codeStyle": "K&R",
+  "php.format.rules.alignConsecutiveAssignments": true,
+  "[php]": {
+    "editor.defaultFormatter": "DEVSENSE.phptools-vscode",
+    "editor.formatOnSave": false,
+    "editor.tabSize": 2
+  },
+
+  // Python
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4
+  },
+
+  // Go
+  "go.inlayHints.assignVariableTypes": true,
+  "go.inlayHints.constantValues": true,
+  "go.inlayHints.parameterNames": true,
+  "go.inlayHints.functionTypeParameters": true,
+  "go.inlayHints.rangeVariableTypes": true,
+  "[go]": {
+    "editor.defaultFormatter": "golang.go",
+    "editor.formatOnSave": true
+  },
+
+  // Разное
+  "security.workspace.trust.untrustedFiles": "open",
+  "nxConsole.showNodeVersionOnStartup": false,
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/node_modules/**": true
+  },
+  "search.exclude": {
+    "**/node_modules": true
+  },
+  "typescript.tsserver.maxTsServerMemory": 4096,
+  "diffEditor.codeLens": true,
+  "chat.commandCenter.enabled": false,
+
+  // SVG
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  },
+
+  // Hex Editor
+  "hexeditor.columnWidth": 16,
+  "hexeditor.showDecodedText": true,
+  "hexeditor.defaultEndianness": "little",
+  "hexeditor.inspectorType": "aside",
+
+  // Telemetry
+  "redhat.telemetry.enabled": false
+}

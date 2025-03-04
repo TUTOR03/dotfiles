@@ -14,6 +14,9 @@
   ssh.enable = true;
   git.enable = true;
 
+  # Включаем редакторы кода
+  vscode.enable = true;
+
   # Включение браузеров из общих модулей
   firefox.enable = true;
   google-chrome.enable = true;
