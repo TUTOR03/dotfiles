@@ -10,10 +10,13 @@
     htop
   ];
 
+  # Включение ssh и git
+  ssh.enable = true;
+  git.enable = true;
+
   # Включение браузеров из общих модулей
   firefox.enable = true;
   google-chrome.enable = true;
 
   programs.bash.enable = true;
-  programs.git.enable = true;
 }
