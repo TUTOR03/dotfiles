@@ -58,6 +58,5 @@
     };
 
     home.file.".config/Code/User/settings.json".source = ./vscode/settings.json;
-    home.file.".config/Code/User/keybindings.json".source = ./vscode/keybindings.json;
   };
 }
