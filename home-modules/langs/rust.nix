@@ -2,10 +2,10 @@
 
 let
   stableRust = pkgs.rust-bin.stable.latest.default.override {
-    extensions = [ "rust-src" "rust-analyzer" "clippy" ];
+    extensions = [ "rust-src" "clippy" ];
   };
   nightlyRust = pkgs.rust-bin.nightly.latest.default.override {
-    extensions = [ "rust-src" "rust-analyzer" "clippy" ];
+    extensions = [ "rust-src" "clippy" ];
   };
 in {
   options = {
@@ -16,6 +16,7 @@ in {
     home.packages = [
       stableRust
       nightlyRust
+      pkgs.rust-analyzer
       pkgs.cargo-watch
       pkgs.cargo-edit
     ];
