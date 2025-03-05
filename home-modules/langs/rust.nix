@@ -2,10 +2,7 @@
 
 let
   stableRust = pkgs.rust-bin.stable.latest.default.override {
-    extensions = [ "rust-src" "clippy" ];
-  };
-  nightlyRust = pkgs.rust-bin.nightly.latest.default.override {
-    extensions = [ "rust-src" "clippy" ];
+    extensions = [ "rust-src" "rust-analyzer" "clippy" ];
   };
 in {
   options = {
@@ -15,8 +12,6 @@ in {
   config = lib.mkIf config.rust.enable {
     home.packages = [
       stableRust
-      nightlyRust
-      pkgs.rust-analyzer
       pkgs.cargo-watch
       pkgs.cargo-edit
     ];
@@ -24,8 +19,6 @@ in {
     programs.bash.shellAliases = {
       rustc = "${stableRust}/bin/rustc";
       cargo = "${stableRust}/bin/cargo";
-      "rustc-nightly" = "${nightlyRust}/bin/rustc";
-      "cargo-nightly" = "${nightlyRust}/bin/cargo";
     };
   };
 }
