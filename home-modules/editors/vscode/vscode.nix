@@ -9,7 +9,7 @@
     programs.vscode = {
       enable = true;
 
-      extensions = with pkgs.vscode-extensions; [
+      extensions = with pkgs.vscode-marketplace-release; [
         # Языки и фреймворки
         golang.go # Go
         rust-lang.rust-analyzer # Rust
