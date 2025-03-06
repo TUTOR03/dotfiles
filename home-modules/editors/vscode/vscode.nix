@@ -14,7 +14,7 @@
         rust-lang.rust-analyzer
 
         # Go
-        golang.Go
+        golang.go
         
         # Python
         ms-python.python
@@ -27,7 +27,7 @@
         svelte.svelte-vscode
         
         # Nix
-        bbenoist.Nix
+        bbenoist.nix
         
         # Поддержка форматов файлов
         redhat.vscode-yaml
