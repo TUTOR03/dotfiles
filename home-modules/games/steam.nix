@@ -22,18 +22,5 @@
         ${pkgs.protonup-qt}/bin/protonup-qt --install-dir "${config.home.homeDirectory}/.steam/root/compatibilitytools.d" --no-gui --install proton-ge
       fi
     '';
-
-    programs.gamemode = {
-      enable = true;
-      settings = {
-        general = {
-          renice = 10;
-        };
-        gpu = {
-          apply_gpu_optimisations = "accept";
-          gpu_device = 0;
-        };
-      };
-    };
   };
 }

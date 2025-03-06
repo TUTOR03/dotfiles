@@ -16,10 +16,22 @@
   time.timeZone = "Europe/Moscow";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
+  };
+
+  programs.gamemode = {
+    enable = true;
+    settings = {
+      general = {
+        renice = 10;
+      };
+      gpu = {
+        apply_gpu_optimisations = "accept";
+        gpu_device = 0;
+      };
+    };
   };
 
   users.users.sdev = {
@@ -27,6 +39,7 @@
     extraGroups = [
       "wheel"
       "networkmanager"
+      "gamemode"
     ];
   };
 
