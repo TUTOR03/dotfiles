@@ -8,6 +8,7 @@
   home.packages = with pkgs; [
     neofetch
     htop
+    jetbrains-mono
   ];
 
   # Включение ssh и git
