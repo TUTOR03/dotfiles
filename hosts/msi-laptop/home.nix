@@ -35,6 +35,9 @@
   # Включаем VLC плеер
   vlc.enable = true;
 
+  # Включаем Steam
+  steam.enable = true;
+
   programs.bash = {
     enable = true;
     shellAliases = {

@@ -16,6 +16,12 @@
   time.timeZone = "Europe/Moscow";
   i18n.defaultLocale = "en_US.UTF-8";
 
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+
   users.users.sdev = {
     isNormalUser = true;
     extraGroups = [

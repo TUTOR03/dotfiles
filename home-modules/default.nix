@@ -10,5 +10,6 @@
     ./langs/nodejs.nix
     ./langs/rust.nix
     ./media/vlc.nix
+    ./games/steam.nix
   ];
 }
