@@ -43,4 +43,32 @@
       "rebuild-home" = "home-manager switch --flake .#sdev@msi-laptop";
     };
   };
+
+  fonts.fontconfig.enable = true;
+
+  # Настройка программ по умолчанию
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      # Видео открываются в VLC
+      "video/mp4" = "vlc.desktop";
+      "video/mpeg" = "vlc.desktop";
+      "video/x-matroska" = "vlc.desktop";
+      "video/webm" = "vlc.desktop";
+      "video/avi" = "vlc.desktop";
+      "video/quicktime" = "vlc.desktop";
+
+      # Браузер по умолчанию для HTTP/HTTPS/HTML
+      "x-scheme-handler/http" = "google-chrome.desktop";
+      "x-scheme-handler/https" = "google-chrome.desktop";
+      "text/html" = "google-chrome.desktop";
+      "application/xhtml+xml" = "google-chrome.desktop";
+    };
+  };
+
+  # Переменные окружения для браузера по умолчанию
+  home.sessionVariables = {
+    BROWSER = "google-chrome";
+    DEFAULT_BROWSER = "google-chrome";
+  };
 }
