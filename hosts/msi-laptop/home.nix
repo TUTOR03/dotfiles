@@ -28,9 +28,12 @@
   };
   rust.enable = true;
 
-  # Включение браузеров из общих модулей
+  # Включаем браузеры
   firefox.enable = true;
   google-chrome.enable = true;
+
+  # Включаем VLC плеер
+  vlc.enable = true;
 
   programs.bash = {
     enable = true;

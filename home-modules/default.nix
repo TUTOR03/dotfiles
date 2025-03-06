@@ -9,5 +9,6 @@
     ./editors/vscode/vscode.nix
     ./langs/nodejs.nix
     ./langs/rust.nix
+    ./media/vlc.nix
   ];
 }
