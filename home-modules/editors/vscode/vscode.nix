@@ -15,15 +15,11 @@
         rust-lang.rust-analyzer # Rust
         ms-python.python # Python
         ms-python.vscode-pylance # Python (Pylance)
-        vue.volar # Vue
         svelte.svelte-vscode # Svelte
-        astro-build.astro-vscode # Astro
-        prisma.prisma # Prisma
 
         # Инструменты разработки
         dbaeumer.vscode-eslint # ESLint
         esbenp.prettier-vscode # Prettier
-        stylelint.vscode-stylelint # Stylelint
         ms-azuretools.vscode-docker # Docker
         ms-vscode.makefile-tools # Makefile
         redhat.vscode-yaml # YAML
@@ -36,7 +32,6 @@
         # Git и GitHub
         eamodio.gitlens # GitLens
         mhutchie.git-graph # Git Graph
-#        me-dutour-mathieu.vscode-github-actions # GitHub Actions
 
         # UI и иконки
         pkief.material-icon-theme # Material Icon Theme
@@ -45,7 +40,6 @@
 
         # Дополнительные инструменты
         adpyke.codesnap # CodeSnap (скриншоты кода)
-#        adpyke.vscode-sql-formatter # SQL Formatter
         davidanson.vscode-markdownlint # Markdown Lint
         ms-vscode.hexeditor # Hex Editor
         ms-vsliveshare.vsliveshare # Live Share
@@ -53,7 +47,6 @@
         yzane.markdown-pdf # Markdown to PDF
 #        medo64.render-crlf # Render CRLF
 #        mkxml.vscode-filesize # File Size
-#        lior-chamla.google-fonts # Google Fonts
       ];
     };
 
