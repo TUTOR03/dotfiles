@@ -9,44 +9,57 @@
     programs.vscode = {
       enable = true;
 
-      extensions = with pkgs.vscode-marketplace-release; [
-        # Языки и фреймворки
-        golang.go # Go
-        rust-lang.rust-analyzer # Rust
-        ms-python.python # Python
-        ms-python.vscode-pylance # Python (Pylance)
-        svelte.svelte-vscode # Svelte
+      extensions = with pkgs.vscode-marketplace; [
+        # Rust
+        rust-lang.rust-analyzer
 
-        # Инструменты разработки
-        dbaeumer.vscode-eslint # ESLint
-        esbenp.prettier-vscode # Prettier
-        ms-azuretools.vscode-docker # Docker
-        ms-vscode.makefile-tools # Makefile
-        redhat.vscode-yaml # YAML
-        tamasfe.even-better-toml # TOML
-#        slevesque.shader # Shader
-#        racczzalan.webgl-glsl-editor # WebGL GLSL
-        vadimcn.vscode-lldb # LLDB (отладка C/C++/Rust)
-#        probe-rs.probe-rs-debugger # Probe-rs (отладка Rust для embedded)
+        # Go
+        golang.Go
+        
+        # Python
+        ms-python.python
+        ms-python.vscode-pylance
+        ms-python.black-formatter
+        ms-python.debugpy
+        ms-python.isort
+        
+        # Svelte
+        svelte.svelte-vscode
+        
+        # Nix
+        bbenoist.Nix
+        
+        # Поддержка форматов файлов
+        redhat.vscode-yaml
+        tamasfe.even-better-toml
+        jock.svg
+        shanoor.vscode-nginx
+        tomoki1207.pdf
+        davidanson.vscode-markdownlint
+        yzane.markdown-pdf
 
-        # Git и GitHub
-        eamodio.gitlens # GitLens
-        mhutchie.git-graph # Git Graph
+        # Утилиты
+        dbaeumer.vscode-eslint
+        esbenp.prettier-vscode
+        ms-azuretools.vscode-docker
+        ms-vscode.makefile-tools
+        vadimcn.vscode-lldb
+        eamodio.gitlens
+        mhutchie.git-graph
+        adpyke.codesnap
+        ms-vscode.hexeditor
+        ms-vsliveshare.vsliveshare
+        ms-vscode-remote.remote-containers
+        ms-vscode-remote.remote-ssh
+        ms-vscode-remote.remote-ssh-edit
+        ms-vscode-remote.remote-wsl
+        ms-vscode.remote-explorer
+        ms-playwright.playwright
 
-        # UI и иконки
-        pkief.material-icon-theme # Material Icon Theme
-        wix.vscode-import-cost # Import Cost (размер импортов)
-        yoavbls.pretty-ts-errors # Pretty TypeScript Errors
-
-        # Дополнительные инструменты
-        adpyke.codesnap # CodeSnap (скриншоты кода)
-        davidanson.vscode-markdownlint # Markdown Lint
-        ms-vscode.hexeditor # Hex Editor
-        ms-vsliveshare.vsliveshare # Live Share
-#        rangav.vscode-thunder-client # Thunder Client (HTTP-клиент)
-        yzane.markdown-pdf # Markdown to PDF
-#        medo64.render-crlf # Render CRLF
-#        mkxml.vscode-filesize # File Size
+        # UI расширения
+        pkief.material-icon-theme
+        wix.vscode-import-cost
+        yoavbls.pretty-ts-errors
       ];
     };
 
