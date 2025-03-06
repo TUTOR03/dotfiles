@@ -11,6 +11,10 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -19,6 +23,7 @@
       nixpkgs,
       home-manager,
       rust-overlay,
+      nix-vscode-extensions,
       ...
     }@inputs:
     let
@@ -27,7 +32,10 @@
       pkgs = import inputs.nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        overlays = [ rust-overlay.overlays.default ];
+        overlays = [ 
+          rust-overlay.overlays.default
+          nix-vscode-extensions.overlays.default
+        ];
       };
     in
     {
