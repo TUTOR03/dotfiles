@@ -47,6 +47,9 @@
     };
   };
 
+  # Включаем Hyprland
+  hyprland.enable = true;
+
   fonts.fontconfig.enable = true;
 
   # Настройка программ по умолчанию
@@ -73,5 +76,6 @@
   home.sessionVariables = {
     BROWSER = "google-chrome";
     DEFAULT_BROWSER = "google-chrome";
+    NIXOS_OZONE_WL = "1";
   };
 }

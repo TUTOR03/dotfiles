@@ -11,5 +11,6 @@
     ./langs/rust.nix
     ./media/vlc.nix
     ./games/steam.nix
+    ./hyprland/hyprland.nix
   ];
 }

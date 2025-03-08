@@ -60,7 +60,16 @@
     home-manager
   ];
 
+  # Если хотим использовать XServer
+  xserver.enable = false;
+
+  # Если хотим использовать Hyprland
+  programs.hyprland = {
+    enable = true;
+    package = pkgs.hyprland;
+    xwayland.enable = true;
+  };
+
   # Включение сервисов из общих модулей
-  xserver.enable = true;
   libinput.enable = true;
 }

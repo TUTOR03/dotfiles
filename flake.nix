@@ -15,6 +15,10 @@
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -35,6 +39,9 @@
         overlays = [ 
           rust-overlay.overlays.default
           vscode-extensions.overlays.default
+          (final: prev: {
+            hyprland = inputs.hyprland.packages.${system}.hyprland;
+          })
         ];
       };
     in
