@@ -64,7 +64,10 @@
   xserver.enable = false;
 
   # Если хотим использовать Hyprland
-  hyprland.enable = true;
+  hyprland = {
+    enable = true;
+    user = "sdev";
+  };
 
   # Включение сервисов из общих модулей
   libinput.enable = true;

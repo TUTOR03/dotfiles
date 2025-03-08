@@ -3,6 +3,10 @@
 {
   options = {
     hyprland.enable = lib.mkEnableOption "enables Hyprland";
+    hyprland.user = libmkOption {
+      type = libtypes.str;
+      description = "Username to automatically log in and start Hyprland for";
+    };
   };
 
   config = lib.mkIf config.hyprland.enable {
@@ -18,7 +22,7 @@
       settings = {
         default_session = {
           command = "${pkgs.hyprland}/bin/Hyprland";
-          user = "sdev";
+          user = config.hyprland.user;
         };
       };
     };
