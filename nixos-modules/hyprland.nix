@@ -17,14 +17,13 @@
       restart = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l; ${pkgs.hyprland}/bin/Hyprland";
-          user = "greeter";
+          command = "${pkgs.hyprland}/bin/Hyprland";
+          user = "sdev";
         };
       };
     };
 
     environment.systemPackages = with pkgs; [
-      greetd.gtkgreet
       kitty
     ];
   };
