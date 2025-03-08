@@ -72,7 +72,7 @@
     };
   };
 
-  # Переменные окружения для браузера по умолчанию
+  # Переменные окружения
   home.sessionVariables = {
     BROWSER = "google-chrome";
     DEFAULT_BROWSER = "google-chrome";
