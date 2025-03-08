@@ -3,8 +3,8 @@
 {
   options = {
     hyprland.enable = lib.mkEnableOption "enables Hyprland";
-    hyprland.user = libmkOption {
-      type = libtypes.str;
+    hyprland.user = lib.mkOption {
+      type = lib.types.str;
       description = "Username to automatically log in and start Hyprland for";
     };
   };
