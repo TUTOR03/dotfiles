@@ -16,7 +16,7 @@
         mkdir -p $out
         ${pkgs.gnutar}/bin/tar -xzf ${pkgs.fetchurl {
           url = "https://github.com/LOSEARDES77/Bibata-Cursor-hyprcursor/releases/download/1.0/hypr_Bibata-Original-Classic.tar.gz";
-          sha256 = "sha256-K1ga1Y3xOWu7jpF7iGKrSh+tvRW78zw8JMc6VAkcwMo=";
+          sha256 = "sha256-y4yRJYTI9uf/sbIJxwi0bZxgsiAXykn253qgDkHZa7g=";
         }} --strip-components=1 -C $out
       '';
     };
