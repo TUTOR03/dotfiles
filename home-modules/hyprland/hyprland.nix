@@ -11,7 +11,7 @@
       hyprcursor
     ];
 
-    home.file.".local/share/hyprcursor/hypr_Bibata-Original-Classic" = {
+    home.file.".local/share/hyprcursor/Bibata-Original-Classic" = {
       source = pkgs.runCommand "extract-hypr-bibata" {} ''
         mkdir -p $out
         ${pkgs.gnutar}/bin/tar -xzf ${pkgs.fetchurl {
@@ -27,7 +27,7 @@
         "$mod" = "SUPER";
 
         env = [
-          "HYPRCURSOR_THEME,Adwaita"
+          "HYPRCURSOR_THEME,Bibata-Original-Classic"
           "HYPRCURSOR_SIZE,24"
         ];
 
