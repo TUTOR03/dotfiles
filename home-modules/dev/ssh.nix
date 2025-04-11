@@ -13,7 +13,6 @@
   config = lib.mkIf config.ssh.enable {
     programs.ssh = {
       enable = true;
-      startAgent = true;
       addKeysToAgent = "yes";
       extraConfig = lib.concatStringsSep "\n" (
         map (key: "IdentityFile ${key}") config.ssh.keys
