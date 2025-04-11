@@ -11,6 +11,13 @@
       hyprcursor
       adwaita-icon-theme
     ];
+
+    home.file.".local/share/hyprcursor/Adwaita" = {
+      source = pkgs.runCommand "convert-adwaita-hyprcursor" {} ''
+        mkdir -p $out
+        ${pkgs.hyprcursor}/bin/hyprcursor-converter -i ${pkgs.adwaita-icon-theme}/share/icons/Adwaita -o $out
+      '';
+    };
     
     wayland.windowManager.hyprland = {
       enable = true;
