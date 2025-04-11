@@ -8,6 +8,7 @@
   config = lib.mkIf config.hyprland.enable {
     home.packages = with pkgs; [
       waybar
+      hyprcursor
     ];
     
     wayland.windowManager.hyprland = {
@@ -17,6 +18,7 @@
 
         exec-once = [
           "waybar"
+          "hyprcursor"
         ];
         
         bindm = [
@@ -69,6 +71,11 @@
           shadow = {
             enabled = false;
           };
+        };
+
+        cursor = {
+          enable_hyprcursor = true;
+          default = "default";
         };
       };
     };
