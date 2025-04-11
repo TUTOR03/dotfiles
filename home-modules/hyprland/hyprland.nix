@@ -9,6 +9,7 @@
     home.packages = with pkgs; [
       waybar
       hyprcursor
+      adwaita-icon-theme
     ];
     
     wayland.windowManager.hyprland = {
