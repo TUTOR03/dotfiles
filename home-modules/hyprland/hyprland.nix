@@ -17,6 +17,11 @@
       settings = {
         "$mod" = "SUPER";
 
+        env = [
+          "HYPRCURSOR_THEME,Adwaita"
+          "HYPRCURSOR_SIZE,24"
+        ];
+
         exec-once = [
           "waybar"
           "hyprctl setcursor Adwaita 24"
