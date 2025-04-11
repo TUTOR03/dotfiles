@@ -12,7 +12,12 @@
   ];
 
   # Включение ssh и git
-  ssh.enable = true;
+  ssh = {
+    enable = true;
+    keys = [
+      "~/.ssh/id_rsa_msi_laptop_github"
+    ];
+  };
   git = {
     enable = true;
     sshKeyPathGithub = "~/.ssh/id_rsa_msi_laptop_github";
