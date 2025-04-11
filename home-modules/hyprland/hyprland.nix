@@ -11,11 +11,14 @@
       hyprcursor
     ];
 
-    home.file.".local/share/hyprcursor/Bibata-Original-Classic" = {
-      source = pkgs.fetchzip {
-        url = "https://github.com/LOSEARDES77/Bibata-Cursor-hyprcursor/releases/download/1.0/hypr_Bibata-Original-Classic.tar.gz";
-        sha256 = "sha256-K1ga1Y3xOWu7jpF7iGKrSh+tvRW78zw8JMc6VAkcwMo=";
-      };
+    home.file.".local/share/hyprcursor/hypr_Bibata-Original-Classic" = {
+      source = pkgs.runCommand "extract-hypr-bibata" {} ''
+        mkdir -p $out
+        ${pkgs.gnutar}/bin/tar -xzf ${pkgs.fetchurl {
+          url = "https://github.com/LOSEARDES77/Bibata-Cursor-hyprcursor/releases/download/1.0/hypr_Bibata-Original-Classic.tar.gz";
+          sha256 = "sha256-K1ga1Y3xOWu7jpF7iGKrSh+tvRW78zw8JMc6VAkcwMo=";
+        }} --strip-components=1 -C $out
+      '';
     };
     
     wayland.windowManager.hyprland = {
