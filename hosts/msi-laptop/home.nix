@@ -47,8 +47,8 @@
     enable = true;
     shellAliases = {
       cls = "clear";
-      rebuild = "sudo nixos-rebuild switch --flake .#msi-laptop";
-      "rebuild-home" = "home-manager switch --flake .#sdev@msi-laptop";
+      rebuild = "sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/dotfiles#msi-laptop";
+      "rebuild-home" = "home-manager switch --flake ${config.home.homeDirectory}/dotfiles#sdev@msi-laptop";
     };
   };
 
