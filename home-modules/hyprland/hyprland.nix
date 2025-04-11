@@ -9,14 +9,13 @@
     home.packages = with pkgs; [
       waybar
       hyprcursor
-      adwaita-icon-theme
     ];
 
-    home.file.".local/share/hyprcursor/Adwaita" = {
-      source = pkgs.runCommand "convert-adwaita-hyprcursor" {} ''
-        mkdir -p $out
-        ${pkgs.hyprcursor}/bin/hyprcursor-converter -i ${pkgs.adwaita-icon-theme}/share/icons/Adwaita -o $out
-      '';
+    home.file.".local/share/hyprcursor/Bibata-Original-Classic" = {
+      source = pkgs.fetchzip {
+        url = "https://github.com/LOSEARDES77/Bibata-Cursor-hyprcursor/releases/download/1.0/hypr_Bibata-Original-Classic.tar.gz";
+        sha256 = "sha256-0Yg1qD4bT8ZAZM7S0L5iH6nT5Kj9mQzXjXg7t0z9x8c=";
+      };
     };
     
     wayland.windowManager.hyprland = {
@@ -31,7 +30,7 @@
 
         exec-once = [
           "waybar"
-          "hyprctl setcursor Adwaita 24"
+          "hyprctl setcursor Bibata-Original-Classic 24"
         ];
         
         bindm = [
