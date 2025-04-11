@@ -18,7 +18,7 @@
 
         exec-once = [
           "waybar"
-          "hyprcursor"
+          "hyprctl setcursor Adwaita 24"
         ];
         
         bindm = [
@@ -75,7 +75,6 @@
 
         cursor = {
           enable_hyprcursor = true;
-          default = "default";
         };
       };
     };
