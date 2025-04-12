@@ -13,6 +13,7 @@ in {
     home.packages = with pkgs; [
       waybar
       hyprcursor
+      rofi-wayland
     ];
 
     home.file.".local/share/icons/${cursorTheme}".source = ./cursors/${cursorTheme};
@@ -42,6 +43,7 @@ in {
           "$mod, Q, killactive"
           "$mod, T, exec, kitty"
           "$mod, F, fullscreen"
+          "$mod, R, exec, rofi -show drun"
           "$mod, 1, workspace, 1"
           "$mod, 2, workspace, 2"
           "$mod, 3, workspace, 3"
@@ -88,6 +90,12 @@ in {
           enable_hyprcursor = true;
         };
       };
+    };
+
+    programs.rofi = {
+      enable = true;
+      package = pkgs.rofi-wayland;
+      theme = "Monokai";
     };
 
     programs.waybar = {
