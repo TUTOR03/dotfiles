@@ -3,7 +3,7 @@
 
 let
   cursorTheme = "Notwaita-Black";
-  cursorSize = 22;
+  cursorSize = "22";
 in {
   options = {
     hyprland.enable = lib.mkEnableOption "enables Hyprland";
@@ -15,7 +15,7 @@ in {
       hyprcursor
     ];
 
-    home.file.".local/share/icons/${cursorTheme}".source = "./cursors/${cursorTheme}";
+    home.file.".local/share/icons/${cursorTheme}".source = ./cursors/${cursorTheme};
     
     wayland.windowManager.hyprland = {
       enable = true;
