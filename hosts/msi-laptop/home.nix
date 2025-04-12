@@ -48,7 +48,14 @@
     shellAliases = {
       cls = "clear";
       rebuild = "sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/dotfiles#msi-laptop";
-      "rebuild-home" = "home-manager switch --flake ${config.home.homeDirectory}/dotfiles#sdev@msi-laptop";
+      rebuild-home = "home-manager switch --flake ${config.home.homeDirectory}/dotfiles#sdev@msi-laptop";
+      nix-gc = "sudo nix-collect-garbage";
+      nix-gc-boot = ''
+        sudo nix-collect-garbage --delete-older-than 7d && \
+        sudo nix profile wipe-history --profile /nix/var/nix/profiles/system --older-than 7d && \
+        sudo /run/current-system/bin/switch-to-configuration boot
+      '';
+      
     };
   };
 
