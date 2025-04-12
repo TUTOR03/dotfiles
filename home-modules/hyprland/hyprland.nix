@@ -1,6 +1,10 @@
 { config, lib, pkgs, ... }:
 
-{
+
+let
+  cursorTheme = "Notwaita-Black";
+  cursorSize = 22;
+in {
   options = {
     hyprland.enable = lib.mkEnableOption "enables Hyprland";
   };
@@ -11,15 +15,7 @@
       hyprcursor
     ];
 
-    home.file.".local/share/hyprcursor/Bibata-Original-Classic" = {
-      source = pkgs.runCommand "extract-hypr-bibata" {} ''
-        mkdir -p $out
-        ${pkgs.gnutar}/bin/tar -xzf ${pkgs.fetchurl {
-          url = "https://github.com/LOSEARDES77/Bibata-Cursor-hyprcursor/releases/download/1.0/hypr_Bibata-Original-Classic.tar.gz";
-          sha256 = "sha256-y4yRJYTI9uf/sbIJxwi0bZxgsiAXykn253qgDkHZa7g=";
-        }} --strip-components=1 -C $out
-      '';
-    };
+    home.file.".local/share/icons/${cursorTheme}".source = "./cursors/${cursorTheme}";
     
     wayland.windowManager.hyprland = {
       enable = true;
@@ -27,13 +23,13 @@
         "$mod" = "SUPER";
 
         env = [
-          "HYPRCURSOR_THEME,Bibata-Original-Classic"
-          "HYPRCURSOR_SIZE,24"
+          "XCURSOR_THEME,${cursorTheme}"
+          "XCURSOR_SIZE,${cursorSize}"
         ];
 
         exec-once = [
           "waybar"
-          "hyprctl setcursor Bibata-Original-Classic 24"
+          "hyprctl setcursor ${cursorTheme} ${cursorSize}"
         ];
         
         bindm = [
