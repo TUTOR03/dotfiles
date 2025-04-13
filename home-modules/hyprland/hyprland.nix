@@ -68,7 +68,7 @@ in {
 
         general = {
           border_size = 1;
-          gaps_in = 0;
+          gaps_in = 4;
           gaps_out = 0;
           gaps_workspaces = 0;
           resize_on_border = true;
@@ -77,6 +77,9 @@ in {
         };
 
         decoration = {
+          rounding = 10;
+          rounding_power = 2.0;
+
           blur = {
             enabled = false;
           };
