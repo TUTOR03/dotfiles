@@ -104,47 +104,110 @@ in {
         mainBar = {
           layer = "top";
           position = "top";
-          height = 30;
+          margin = "8 0 8 0";
+          spacing = "8";
 
-          modules-left = [ "hyprland/workspaces" "hyprland/window" ];
-          modules-center = [ "clock" ];
-          modules-right = [ "cpu" "memory" "battery" "tray" ];
+          modules-left = [ "clock" "tray"];
+          modules-center = [ "hyprland/workspaces" ];
+          modules-right = [ "cpu" "memory" "network" "battery" ];
+
+          clock = {
+            format = "{:%d-%m-%Y %H:%M}";
+            interval = 60;
+          };
+
+          tray = {
+            icon-size =  16;
+            spacing = 4;
+          };
+
           "hyprland/workspaces" = {
-            format = "{name}";
-            on-click = "activate";
+            format = "{icon}";
+            format-icons = {
+              active = "";
+              default = "";
+              empty = "";
+            };
             persistent-workspaces = {
               "*" = 3;
             };
           };
-          clock = {
-            format = "{:%d-%m-%Y %H:%M}";
-          };
+
           cpu = {
-            format = "CPU {usage}%";
+            interval = 30;
+            format = "{usage}%";
+            tooltip = true;
           };
+
           memory = {
-            format = "Mem {}%";
+            interval = 30;
+            format = "{percentage}%";
+            tooltip = true;
           };
+
+          network = {
+            interval = 30;
+            format-wifi = "{essid} ({signalStrength}%)󰖩";
+            format-ethernet = "{ipaddr}/{cidr}󰌗";
+            format-disconnected = "󰖪";
+          };
+
           battery = {
-            format = "{capacity}% {icon}";
-            format-icons = [ "🔋" "🔌" ];
+            interval = 30;
+            format = "{capacity}%{icon}";
+            format-charging = "{capacity}%󰂄";
+            format-plugged = "{capacity}%";
+            format-icons = [ "󰁻" "󰁼" "󰁾" "󰂀" "󰂂" "󰁹" ];
           };
         };
       };
+
       style = ''
         * {
-          font-family: JetBrains Mono;
-          font-size: 13px;
+          font-family: JetBrainsMono Nerd Font;
+          font-size: 16px;
         }
+
+        window#waybar{
+          all:unset;
+          color: #F8F8F2;
+        }
+
+        .modules-left {
+          padding: 8px;
+          border-radius: 10px;
+          background: #3E3D32;
+        }
+
+        .modules-center {
+          padding: 8px;
+          border-radius: 10px;
+          background: #3E3D32;
+        }
+
+        .modules-right {
+          padding: 8px;
+          border-radius: 10px;
+          background: #3E3D32;
+        }
+
+        tooltip {
+          background: #3E3D32;
+          color: #F8F8F2;
+        }
+
+        #clock {}
+
         #workspaces button {
-          padding: 0 5px;
-          color: #ffffff;
+          margin: 0 2px;
         }
+
+        #workspaces button:hover {
+          color: #878B91;
+        }
+
         #workspaces button.active {
-          background: #646464;
-        }
-        #clock, #cpu, #memory, #battery, #tray {
-          padding: 0 10px;
+          color: #A6E22E;
         }
       '';
     };

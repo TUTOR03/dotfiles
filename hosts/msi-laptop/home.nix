@@ -8,7 +8,7 @@
   home.packages = with pkgs; [
     neofetch
     htop
-    jetbrains-mono
+    nerdfonts
   ];
 
   # Включение ssh и git
@@ -55,7 +55,11 @@
         sudo nix profile wipe-history --profile /nix/var/nix/profiles/system --older-than 7d && \
         sudo /run/current-system/bin/switch-to-configuration boot
       '';
-      
+      hypr-reload = ''
+        pkill waybar && \
+        hyprctl reload && \
+        waybar & disown
+      '';
     };
   };
 

@@ -12,7 +12,7 @@
 
   // Внешний вид редактора
   "editor.fontSize": 16,
-  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontFamily": "JetBrainsMono Nerd Font, JetBrains Mono",
   "editor.wordWrap": "on",
   "editor.unicodeHighlight.ambiguousCharacters": false,
   "editor.cursorBlinking": "expand",
