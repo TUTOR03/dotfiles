@@ -119,21 +119,22 @@ in {
     };
 
     # Rofi
-    # home.file.".config/rofi/theme.rasi".source = ./rofi/theme.rasi;
-    
+    home.file.".config/rofi/theme.rasi".source = config.lib.file.mkOutOfStoreSymlink ./rofi/theme.rasi;
+
     programs.rofi = {
       enable = true;
       package = pkgs.rofi-wayland;
       extraConfig = {
         modi = "drun";
         font = "JetBrainsMono Nerd Font SemiBold 14";
-        location = 0;
-	      yoffset = 0;
-	      xoffset = 0;
-        display-drun = "App:";
         show-icons = true;
-        # theme = ./rofi/theme.rasi;
+        icon-theme = "Papirus";
+        display-drun = "App";
+        drun-display-format = "{icon} {name}";
+        disable-history = false;
+        sidebar-mode = false;
       };
+      theme = "theme";
     };
   };
 }
