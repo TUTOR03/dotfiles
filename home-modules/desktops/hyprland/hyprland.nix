@@ -36,6 +36,11 @@ in {
         cursor = {
           enable_hyprcursor = true;
         };
+
+        input = {
+          kb_layout = "us,ru";
+          kb_options = "grp:alt_shift_toggle";
+        };
         
         bindm = [
           "$mod, mouse:272, movewindow"
