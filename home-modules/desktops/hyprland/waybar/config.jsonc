@@ -4,7 +4,7 @@
   "margin": "0",
   "spacing": 8,
 
-  "modules-left": ["clock"],
+  "modules-left": ["clock", "tray"],
   "modules-center": ["hyprland/workspaces"],
   "modules-right": [
     "bluetooth",
@@ -25,7 +25,8 @@
 
   "tray": {
     "icon-size": 16,
-    "spacing": 4
+    "spacing": 4,
+    "show-passive-items": true
   },
 
   "hyprland/workspaces": {
