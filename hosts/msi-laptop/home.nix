@@ -28,6 +28,10 @@
   # Включаем редакторы кода
   vscode.enable = true;
 
+  obs.enable = true;
+  audacity.enable = true;
+  nomacs.enable = true;
+
   # Включаем языки
   nodejs = {
     enable = true;

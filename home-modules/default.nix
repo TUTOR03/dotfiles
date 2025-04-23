@@ -12,11 +12,15 @@
     ./langs/rust.nix
     # Media
     ./media/vlc.nix
+    ./media/audacity.nix
+    ./media/nomacs.nix
     # Games
     ./games/steam.nix
     # Desktops
     ./desktops/hyprland/hyprland.nix
+    # Others
     ./others/git.nix
     ./others/ssh.nix
+    ./others/obs.nix
   ];
 }
