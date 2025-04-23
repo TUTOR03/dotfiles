@@ -18,6 +18,12 @@ sudo nixos-rebuild switch --flake .#msi-laptop
 home-manager switch --flake .#sdev@msi-laptop
 ```
 
+## Список задач
+
+Отрефакторить модуль git, чтобы имя пользователя и почта передавались в виде параметров
+
+Добавить программы - obs, audacity, nomacs. obs положить как модуль в папку others. Остальные тоже как модули положить в папку media
+
 ## Что мы хотим видеть
 
 browsers:
