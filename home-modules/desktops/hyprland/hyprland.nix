@@ -13,6 +13,8 @@ in {
       waybar
       hyprcursor
       rofi-wayland
+      brightnessctl
+      pamixer
     ];
 
     home.file.".local/share/icons/${cursorTheme}".source = ./cursors/${cursorTheme};
@@ -65,6 +67,11 @@ in {
           "$mod, down, movefocus, d"
           "$mod, up, movefocus, u"
           "$mod, right, movefocus, r"
+          ",XF86MonBrightnessUp, exec, brightnessctl set +5%"
+          ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+          ",XF86AudioRaiseVolume, exec, pamixer --increase 5"
+          ",XF86AudioLowerVolume, exec, pamixer --decrease 5"
+          ",XF86AudioMute, exec, pamixer --toggle-mute"
         ];
 
         workspace = [
