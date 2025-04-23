@@ -1,69 +1,69 @@
 * {
-    font: "JetBrainsMono Nerd Font SemiBold 14";
-    background: #3e3d32;
-    foreground: #f8f8f2;
-    accent: #a6e22e;
-    border-color: #a6e22e;
+  font: "JetBrainsMono Nerd Font SemiBold 14";
+  background: #3e3d32;
+  foreground: #f8f8f2;
+  accent: #a6e22e;
+  border-color: #a6e22e;
 }
 
 window {
-    width: 600px;
-    background: @background;
-    border: 1px;
-    border-color: @border-color;
-    border-radius: 10px;
-    padding: 10px;
+  width: 600px;
+  background: @background;
+  border: 1px;
+  border-color: @border-color;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 mainbox {
-    background: @background;
-    children: [ inputbar, listview ];
+  background: @background;
+  children: [ inputbar, listview ];
 }
 
 inputbar {
-    background: @background;
-    border: 1px;
-    border-color: @border-color;
-    border-radius: 5px;
-    padding: 8px;
-    children: [ prompt, entry ];
+  background: @background;
+  border: 1px;
+  border-color: @border-color;
+  border-radius: 5px;
+  padding: 8px;
+  children: [ prompt, entry ];
 }
 
 prompt {
-    text-color: @accent;
-    padding: 0 10px 0 0;
+  text-color: @accent;
+  padding: 0 10px 0 0;
 }
 
 entry {
-    text-color: @foreground;
-    background: @background;
+  text-color: @foreground;
+  background: @background;
 }
 
 listview {
-    background: @background;
-    padding: 10px 0;
-    spacing: 5px;
-    lines: 5;
-    fixed-height: false;
+  background: @background;
+  padding: 10px 0;
+  spacing: 5px;
+  lines: 5;
+  fixed-height: false;
 }
 
 element {
-    background: @background;
-    padding: 8px;
-    border-radius: 5px;
-    children: [ element-icon, element-text ];
+  background: @background;
+  padding: 8px;
+  border-radius: 5px;
+  children: [ element-icon, element-text ];
 }
 
 element selected {
-    background: @accent;
-    text-color: @background;
+  background: @accent;
+  text-color: @background;
 }
 
 element-icon {
-    size: 32px;
-    padding: 0 10px 0 0;
+  size: 32px;
+  padding: 0 10px 0 0;
 }
 
 element-text {
-    text-color: inherit;
+  text-color: inherit;
 }
