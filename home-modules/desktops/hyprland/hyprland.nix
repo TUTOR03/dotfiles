@@ -37,6 +37,7 @@ in {
 
         cursor = {
           enable_hyprcursor = true;
+          no_warps = true;
         };
 
         input = {
