@@ -2,10 +2,10 @@
 
 {
   options = {
-    neofetch.enable = lib.mkEnableOption "enables htop";
+    htop.enable = lib.mkEnableOption "enables htop";
   };
 
-  config = lib.mkIf config.neofetch.enable {
+  config = lib.mkIf config.htop.enable {
     home.packages = with pkgs; [
       htop
     ];

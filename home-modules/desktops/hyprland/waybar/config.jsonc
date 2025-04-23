@@ -9,7 +9,7 @@
   "modules-right": [
     "bluetooth",
     "temperature",
-    "language",
+    "hyprland/language",
     "backlight",
     "pulseaudio",
     "cpu",
@@ -43,24 +43,20 @@
   "bluetooth": {
     "format": "󰂯 {status}",
     "format-connected": "󰂯 {device_alias}",
-    "format-disconnected": "󰂯 Off",
-    "interval": 30
+    "format-disconnected": "󰂯 Off"
   },
 
   "temperature": {
-    "format": " {temperatureC}°C",
-    "interval": 30
+    "format": " {temperatureC}°C"
   },
 
-  "language": {
-    "format": "󰌌 {short}",
-    "interval": 30
+  "hyprland/language": {
+    "format": "󰌌 {}"
   },
 
   "backlight": {
     "format": "{icon} {percent}%",
-    "format-icons": ["󰃞", "󰃟", "󰃠"],
-    "interval": 30
+    "format-icons": ["󰃞", "󰃟", "󰃠"]
   },
 
   "pulseaudio": {
@@ -68,8 +64,7 @@
     "format-muted": "󰝟 Muted",
     "format-icons": {
       "default": ["", "", ""]
-    },
-    "interval": 30
+    }
   },
 
   "cpu": {
