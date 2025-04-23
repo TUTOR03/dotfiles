@@ -2,15 +2,21 @@
 
 {
   imports = [
+    # Browsers
     ./browsers/firefox.nix
     ./browsers/google-chrome.nix
-    ./dev/git.nix
-    ./dev/ssh.nix
-    ./editors/vscode/vscode.nix
+    # Code-editors
+    ./code-editors/vscode/vscode.nix
+    # Langs
     ./langs/nodejs.nix
     ./langs/rust.nix
+    # Media
     ./media/vlc.nix
+    # Games
     ./games/steam.nix
-    ./hyprland/hyprland.nix
+    # Desktops
+    ./desktops/hyprland/hyprland.nix
+    ./others/git.nix
+    ./others/ssh.nix
   ];
 }
