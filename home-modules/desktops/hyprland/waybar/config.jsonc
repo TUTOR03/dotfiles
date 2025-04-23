@@ -6,7 +6,17 @@
 
   "modules-left": ["clock"],
   "modules-center": ["hyprland/workspaces"],
-  "modules-right": ["cpu", "memory", "network", "battery"],
+  "modules-right": [
+    "bluetooth",
+    "temperature",
+    "language",
+    "backlight",
+    "pulseaudio",
+    "cpu",
+    "memory",
+    "network",
+    "battery"
+  ],
 
   "clock": {
     "format": "{:%d-%m-%Y %H:%M}",
@@ -28,6 +38,38 @@
     "persistent-workspaces": {
       "*": 3
     }
+  },
+
+  "bluetooth": {
+    "format": "󰂯 {status}",
+    "format-connected": "󰂯 {device_alias}",
+    "format-disconnected": "󰂯 Off",
+    "interval": 30
+  },
+
+  "temperature": {
+    "format": " {temperatureC}°C",
+    "interval": 30
+  },
+
+  "language": {
+    "format": "󰌌 {short}",
+    "interval": 30
+  },
+
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "interval": 30
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 Muted",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "interval": 30
   },
 
   "cpu": {

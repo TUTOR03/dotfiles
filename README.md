@@ -28,6 +28,10 @@ home-manager switch --flake .#sdev@msi-laptop
 
 Вынести neofetch, htop в отдельные модули в папке others
 
+Добавить новые модули для waybar - bluetooth, temperature, language, backlight, pulseaudio
+
+Нужно добавить новуб раскалдку клавиатуры и добавить возможность ее переключать
+
 ## Что мы хотим видеть
 
 browsers:
