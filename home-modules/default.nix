@@ -22,5 +22,7 @@
     ./others/git.nix
     ./others/ssh.nix
     ./others/obs.nix
+    ./others/htop.nix
+    ./others/neofetch.nix
   ];
 }

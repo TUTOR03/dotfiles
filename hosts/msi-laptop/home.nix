@@ -13,8 +13,6 @@
   };
 
   home.packages = with pkgs; [
-    neofetch
-    htop
     nerdfonts
   ];
 
@@ -99,4 +97,6 @@
 
   # Прочие программы
   obs.enable = true;
+  htop.enable = true;
+  neofetch.enable = true;
 }
