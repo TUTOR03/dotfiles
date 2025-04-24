@@ -129,7 +129,7 @@ in {
         font = "JetBrainsMono Nerd Font SemiBold 14";
         show-icons = true;
         icon-theme = "Papirus";
-        display-drun = "App";
+        display-drun = "";
         drun-display-format = "{icon} {name}";
         disable-history = false;
         sidebar-mode = false;

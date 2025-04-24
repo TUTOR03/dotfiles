@@ -1,69 +1,57 @@
 * {
   font: "JetBrainsMono Nerd Font SemiBold 14";
   background: #3e3d32;
-  foreground: #f8f8f2;
+  background-active: #90908A;
+  contrast: #f8f8f2;
   accent: #a6e22e;
-  border-color: #a6e22e;
 }
 
 window {
-  width: 600px;
-  background: @background;
   border: 1px;
-  border-color: @border-color;
+  border-color: @contrast;
+  background-color: @background;
   border-radius: 10px;
   padding: 10px;
 }
 
 mainbox {
-  background: @background;
+  background-color: transparent;
   children: [ inputbar, listview ];
 }
 
 inputbar {
-  background: @background;
-  border: 1px;
-  border-color: @border-color;
-  border-radius: 5px;
-  padding: 8px;
-  children: [ prompt, entry ];
-}
-
-prompt {
-  text-color: @accent;
-  padding: 0 10px 0 0;
+  background-color: transparent;
+  margin: 0px 0px 12px 0px;
+  children: [ entry ];
 }
 
 entry {
-  text-color: @foreground;
-  background: @background;
+  background-color: transparent;
+  text-color: @contrast;
 }
 
 listview {
-  background: @background;
-  padding: 10px 0;
-  spacing: 5px;
-  lines: 5;
-  fixed-height: false;
+  spacing: 6px;
+  background-color: transparent;
+  lines: 6;
 }
 
 element {
-  background: @background;
-  padding: 8px;
-  border-radius: 5px;
+  padding: 6px;
+  background-color: transparent;
   children: [ element-icon, element-text ];
 }
 
 element selected {
-  background: @accent;
-  text-color: @background;
+  background-color: @background-active;
 }
 
 element-icon {
+  background-color: transparent;
   size: 32px;
-  padding: 0 10px 0 0;
 }
 
 element-text {
-  text-color: inherit;
+  background-color: transparent;
+  text-color: @contrast;
 }
