@@ -78,7 +78,7 @@ in {
           ",XF86AudioLowerVolume, exec, pamixer --decrease 5"
           ",XF86AudioMute, exec, pamixer --toggle-mute"
           ",Print, exec, grim - | wl-copy && grim ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"
-          "SHIFT,Print, exec, grim -g \"$(slurp)\" - | wl-copy && grim -g \"$(slurp)\" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"
+          "SHIFT,Print, exec, grim -g \"$(slurp)\" - | tee ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy"
           "CTRL,Print, exec, grim -g \"$(slurp)\" - | swappy -f -"
         ];
 
