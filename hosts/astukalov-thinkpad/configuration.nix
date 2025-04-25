@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
+    # ./hardware-configuration.nix
     ./disko.nix
   ];
 
@@ -11,7 +11,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.luks.devices."crypted".device = "/dev/disk/by-partlabel/luks"; # Поддержка LUKS
-  boot.resumeDevice = "/dev/mapper/crypted-swap"; # Для режима сна
+  boot.resumeDevice = "/dev/mapper/crypted1"; # Для режима сна
   boot.kernelParams = [ "resume_offset=123456" ]; # Заменить на актуальный offset для swap
 
   networking.hostName = "astukalov-thinkpad";
