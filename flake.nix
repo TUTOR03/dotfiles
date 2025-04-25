@@ -60,6 +60,20 @@
             ./nixos-modules
           ];
         };
+
+        # Конфигурация для хоста astukalov-thinkpad
+        msi-laptop = nixpkgs.lib.nixosSystem {
+          inherit system;
+
+          specialArgs = {
+            inherit pkgs;
+          };
+
+          modules = [
+            ./hosts/astukalov-thinkpad/configuration.nix
+            ./nixos-modules
+          ];
+        };
       };
 
       homeConfigurations = {
@@ -69,6 +83,16 @@
 
           modules = [
             ./hosts/msi-laptop/home.nix
+            ./home-modules
+          ];
+        };
+
+        # Конфигурация HomeManager для пользователя astukalov на хосте astukalov-thinkpad
+        "astukalov@astukalov-thinkpad" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+
+          modules = [
+            ./hosts/astukalov-thinkpad/home.nix
             ./home-modules
           ];
         };
