@@ -18,9 +18,6 @@
       opensc
     ];
 
-    security.pam.pkcs11 = {
-      enable = true;
-      module = "${pkgs.opensc}/lib/opensc-pkcs11.so";
-    };
+    security.pam.p11.enable = true;
   };
 }
