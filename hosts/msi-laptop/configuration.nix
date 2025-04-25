@@ -60,6 +60,9 @@
     home-manager
   ];
 
+  # Включаем OpenVPN
+  openvpn.enable = true;
+
   # Если хотим использовать XServer
   xserver.enable = false;
 
