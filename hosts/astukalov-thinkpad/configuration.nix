@@ -49,6 +49,8 @@
     user = "astukalov";
   };
 
+  openvpn.enable = true;
+
   # Поддержка тачпада
   libinput.enable = true;
 

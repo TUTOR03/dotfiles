@@ -7,9 +7,10 @@
 
   config = lib.mkIf config.openvpn.enable {
     environment.systemPackages = with pkgs; [
-      openvpn
+      (openvpn.override { pkcs11Support = true; pkcs11helper = pkgs.pkcs11helper; })
       opensc
       yubikey-manager
+      yubico-piv-tool
     ];
 
     services.pcscd.enable = true;

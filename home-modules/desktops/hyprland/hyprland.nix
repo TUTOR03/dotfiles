@@ -88,7 +88,7 @@ in {
           "3, default:true"
         ];
 
-        monitor = ",preferred,auto,1";
+        monitor = ",preferred,auto,1.5";
 
         general = {
           border_size = 1;
