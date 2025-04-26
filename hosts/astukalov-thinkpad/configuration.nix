@@ -52,9 +52,9 @@
 
   vkvpn = {
     enable = true;
-    caPath = "/etc/openvpn/vkvpn/ca.crt";
-    tlsAuthPath = "/etc/openvpn/vkvpn/ta.key";
-    pkcs11IdFile = "/etc/openvpn/vkvpn/pkcs11-id.txt";
+    caPath = "${config.users.users.astukalov.home}/secrets/vk-vpn/ca.crt";
+    tlsAuthPath = "${config.users.users.astukalov.home}/secrets/vk-vpn/ta.key";
+    pkcs11IdFile = "${config.users.users.astukalov.home}/secrets/vk-vpn/pkcs11-id";
   };
 
   # Поддержка тачпада
