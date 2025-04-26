@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./nixos-modules
   ];
 
   system.stateVersion = "24.11";
@@ -49,7 +50,12 @@
     user = "astukalov";
   };
 
-  openvpn.enable = true;
+  vkvpn = {
+    enable = true;
+    caPath = "/etc/openvpn/vkvpn/ca.crt";
+    tlsAuthPath = "/etc/openvpn/vkvpn/ta.key";
+    pkcs11IdFile = "/etc/openvpn/vkvpn/pkcs11-id.txt";
+  };
 
   # Поддержка тачпада
   libinput.enable = true;
