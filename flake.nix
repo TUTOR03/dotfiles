@@ -62,7 +62,7 @@
         };
 
         # Конфигурация для хоста astukalov-thinkpad
-        msi-laptop = nixpkgs.lib.nixosSystem {
+        astukalov-thinkpad = nixpkgs.lib.nixosSystem {
           inherit system;
 
           specialArgs = {
