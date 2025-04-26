@@ -2,17 +2,14 @@
 
 {
   imports = [
-    # ./hardware-configuration.nix
-    ./disko.nix
+    ./hardware-configuration.nix
   ];
 
   system.stateVersion = "24.11";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.luks.devices."crypted".device = "/dev/disk/by-partlabel/luks"; # Поддержка LUKS
-  boot.resumeDevice = "/dev/mapper/crypted1"; # Для режима сна
-  boot.kernelParams = [ "resume_offset=123456" ]; # Заменить на актуальный offset для swap
+  boot.initrd.luks.devices."luks-c237b1e9-8f18-4da1-88e2-96e5d857aac0".device = "/dev/disk/by-uuid/c237b1e9-8f18-4da1-88e2-96e5d857aac0";
 
   networking.hostName = "astukalov-thinkpad";
   networking.networkmanager.enable = true;
