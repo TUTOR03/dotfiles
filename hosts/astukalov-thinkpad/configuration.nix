@@ -3,7 +3,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./nixos-modules
   ];
 
   system.stateVersion = "24.11";
@@ -44,17 +43,12 @@
     home-manager
   ];
 
+  openvpn.enable = true;
+
   # Поддержка Hyprland
   hyprland = {
     enable = true;
     user = "astukalov";
-  };
-
-  vkvpn = {
-    enable = true;
-    caPath = "${config.users.users.astukalov.home}/secrets/vk-vpn/ca.crt";
-    tlsAuthPath = "${config.users.users.astukalov.home}/secrets/vk-vpn/ta.key";
-    pkcs11IdFile = "${config.users.users.astukalov.home}/secrets/vk-vpn/pkcs11-id";
   };
 
   # Поддержка тачпада

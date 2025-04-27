@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./home-modules
+  ];
+
   home.username = "astukalov";
   home.homeDirectory = "/home/astukalov";
   home.stateVersion = "24.11";
@@ -33,6 +37,13 @@
         waybar & disown
       '';
     };
+  };
+
+  vkvpn = {
+    enable = true;
+    caPath = "${config.home.homeDirectory}/secrets/vk-vpn/ca.crt";
+    tlsAuthPath = "${config.home.homeDirectory}/secrets/vk-vpn/ta.key";
+    pkcs11IdFile = "${config.home.homeDirectory}/secrets/vk-vpn/pkcs11-id";
   };
 
   fonts.fontconfig.enable = true;

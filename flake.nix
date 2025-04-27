@@ -40,6 +40,10 @@
           rust-overlay.overlays.default
           vscode-extensions.overlays.default
           (final: prev: {
+            openvpn = prev.openvpn.override { 
+              pkcs11Support = true;
+              pkcs11helper = pkgs.pkcs11helper;
+            };
             hyprland = inputs.hyprland.packages.${system}.hyprland;
           })
         ];
