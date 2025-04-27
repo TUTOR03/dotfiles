@@ -71,7 +71,6 @@
   };
   git = {
     enable = true;
-    sshKeyPathGithub = "~/.ssh/id_rsa_thinkpad_github";
     userName = "TUTOR03";
     userEmail = "stukalov.dev@gmail.com";
   };
