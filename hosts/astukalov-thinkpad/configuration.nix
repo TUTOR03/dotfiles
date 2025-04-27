@@ -13,6 +13,9 @@
 
   networking.hostName = "astukalov-thinkpad";
   networking.networkmanager.enable = true;
+  networking.hosts = {
+    "10.13.41.171" = ["auth.vk.team" "authcorp.mail.ru"];
+  };
 
   time.timeZone = "Europe/Moscow";
   i18n.defaultLocale = "en_US.UTF-8";

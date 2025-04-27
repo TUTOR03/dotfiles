@@ -67,7 +67,7 @@
   # Настройка SSH и Git
   ssh = {
     enable = true;
-    keys = [ "~/.ssh/id_rsa_thinkpad_github" ];
+    keys = [ "~/.ssh/id_rsa_thinkpad_github" "~/.ssh/id_rsa_thinkpad_vk_gitlab" ];
   };
   git = {
     enable = true;
