@@ -60,6 +60,7 @@
         pkief.material-icon-theme
         wix.vscode-import-cost
         yoavbls.pretty-ts-errors
+        sainnhe.gruvbox-material
       ];
     };
 

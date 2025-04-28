@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   options = {
@@ -16,8 +16,14 @@
   };
 
   config = lib.mkIf config.git.enable {
+    home.packages = with pkgs; [
+      git
+      git-lfs
+    ];
+
     programs.git = {
       enable = true;
+      lfs.enable = true;
       userName = config.git.userName;
       userEmail = config.git.userEmail;
 

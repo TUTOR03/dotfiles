@@ -83,12 +83,16 @@ in {
         ];
 
         workspace = [
-          "1, default:true"
-          "2, default:true"
-          "3, default:true"
+          "1, monitor:eDP-1"
+          "2, monitor:eDP-1"
+          "3, monitor:eDP-1"
+          "4, monitor:DP-3"
         ];
 
-        monitor = ",preferred,auto,1.5";
+        monitor = [
+          "eDP-1, 2880x1800@90, 0x0, 1.5"
+          "DP-3, 3840x2160@60, -320x-1440, 1.5"
+        ];
 
         general = {
           border_size = 1;

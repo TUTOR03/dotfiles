@@ -42,7 +42,7 @@
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "window.titleBarStyle": "custom",
-  "workbench.colorTheme": "Monokai",
+  "workbench.colorTheme": "Gruvbox Material Dark",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "none",
 
