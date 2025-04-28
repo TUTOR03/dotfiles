@@ -12,6 +12,7 @@ in {
     home.packages = with pkgs; [
       waybar
       hyprcursor
+      hyprlock
       rofi-wayland
       brightnessctl
       pamixer
@@ -72,6 +73,7 @@ in {
           "$mod, down, movefocus, d"
           "$mod, up, movefocus, u"
           "$mod, right, movefocus, r"
+          "$mod, L, exec, hyprlock"
           ",XF86MonBrightnessUp, exec, brightnessctl set +5%"
           ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
           ",XF86AudioRaiseVolume, exec, pamixer --increase 5"
@@ -147,5 +149,46 @@ in {
       };
       theme = "theme";
     };
+
+    programs.hyprlock = {
+    enable = true;
+    settings = {
+      general = {
+        disable_loading_bar = true;
+        hide_cursor = true;
+      };
+
+      background = {
+        monitor = "";
+        color = "rgb(28, 37, 38)";
+      };
+
+      label = {
+        monitor = "";
+        text = "$TIME";
+        color = "rgb(255, 255, 255)";
+        font_size = 50;
+        font_family = "Sans";
+        position = "0, 50";
+        halign = "center";
+        valign = "center";
+      };
+
+      input-field = {
+        monitor = "";
+        size = "200, 50";
+        outline_thickness = 2;
+        dots_size = 0.2;
+        dots_spacing = 0.3;
+        outer_color = "rgb(255, 255, 255)";
+        inner_color = "rgb(28, 37, 38)";
+        font_color = "rgb(255, 255, 255)";
+        fade_on_empty = false;
+        position = "0, -20";
+        halign = "center";
+        valign = "center";
+      };
+    };
+  };
   };
 }
