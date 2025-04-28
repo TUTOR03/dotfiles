@@ -6,8 +6,9 @@
   };
 
   config = lib.mkIf config.google-chrome.enable {
-    home.packages = with pkgs; [
-      google-chrome
-    ];
+    programs.google-chrome = {
+      enable = true;
+      commandLineArgs = [ "--force-dark-mode" "--enable-features=WebUIDarkMode" ];
+    };
   };
 }

@@ -13,10 +13,42 @@
     BROWSER = "google-chrome";
     DEFAULT_BROWSER = "google-chrome";
     NIXOS_OZONE_WL = "1";
+    GTK_THEME = "Adwaita-dark";
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SESSION_TYPE = "wayland";
+    QT_STYLE_OVERRIDE = "adwaita-dark";
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
+    };
+    iconTheme = {
+      name = "Adwaita";
+      package = pkgs.gnome-themes-extra;
+    };
+    cursorTheme = {
+      name = "Adwaita";
+      package = pkgs.gnome-themes-extra;
+    };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk";
+    style = {
+      name = "adwaita-dark";
+      package = pkgs.adwaita-qt;
+    };
   };
 
   home.packages = with pkgs; [
     nerdfonts
+    gnome-themes-extra
+    adwaita-qt
   ];
 
   programs.bash = {
