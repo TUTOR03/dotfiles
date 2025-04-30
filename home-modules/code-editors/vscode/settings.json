@@ -43,6 +43,9 @@
   "explorer.confirmDragAndDrop": false,
   "window.titleBarStyle": "custom",
   "workbench.colorTheme": "Gruvbox Material Dark",
+  "gruvboxMaterial.darkContrast": "hard",
+  "gruvboxMaterial.darkPalette": "material",
+  "gruvboxMaterial.highContrast": true,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "none",
 
