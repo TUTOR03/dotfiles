@@ -63,6 +63,10 @@
       "$mod, page_up, workspace, -1"
       "$mod, page_down, workspace, +1"
 
+      # Переместиться активное окно на след/пред вокрспейс
+      "$mod SHIFT, page_up, movetoworkspace, -1"
+      "$mod SHIFT, page_down, movetoworkspace, +1"
+
       # Управлению яркостью экрана
       ",XF86MonBrightnessUp, exec, brightnessctl set +5%"
       ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
