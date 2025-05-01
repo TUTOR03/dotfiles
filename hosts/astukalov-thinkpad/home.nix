@@ -49,6 +49,8 @@
     nerdfonts
     gnome-themes-extra
     adwaita-qt
+    dig
+    dnsutils
   ];
 
   programs.bash = {

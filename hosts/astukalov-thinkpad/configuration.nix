@@ -15,6 +15,7 @@
   networking.networkmanager.enable = true;
   networking.hosts = {
     "10.13.41.171" = ["auth.vk.team" "authcorp.mail.ru"];
+    "10.13.34.186" = [ "confluence.vk.team"];
   };
 
   time.timeZone = "Europe/Moscow";
@@ -60,4 +61,6 @@
   # Поддержка режима сна
   powerManagement.enable = true;
   services.logind.lidSwitch = "suspend";
+
+  services.resolved.enable = true;
 }
