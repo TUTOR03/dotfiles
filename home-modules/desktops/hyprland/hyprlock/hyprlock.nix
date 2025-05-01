@@ -23,16 +23,30 @@
         color = "rgb(50, 48, 47)";
       };
 
-      label = {
-        monitor = "";
-        text = "$TIME";
-        color = "rgb(235, 219, 178)";
-        font_size = 200;
-        font_family = "JetBrainsMono Nerd Font";
-        position = "0, 232px";
-        valign = "center";
-        halign = "center";
-      };
+      label = [
+        # Часы
+        {
+          monitor = "";
+          text = "$TIME";
+          color = "rgb(235, 219, 178)";
+          font_size = 200;
+          font_family = "JetBrainsMono Nerd Font";
+          position = "0, 232px";
+          valign = "center";
+          halign = "center";
+        }
+        # Язык
+        {
+          monitor = "";
+          text = "$LAYOUT[EN,RU]";
+          color = "rgb(235, 219, 178)";
+          font_size = 24;
+          font_family = "JetBrainsMono Nerd Font";
+          position = "-16px, -16px";
+          valign = "top";
+          halign = "right";
+        }
+      ];
 
       input-field = {
         monitor = "";
