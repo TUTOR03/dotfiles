@@ -18,6 +18,7 @@ in {
     ./waybar/waybar.nix
     ./rofi/rofi.nix
     ./hyprlock/hyprlock.nix
+    ./hypridle.nix
   ];
 
   config = lib.mkIf config.hyprland.enable {
@@ -37,6 +38,7 @@ in {
         ];
 
         exec-once = [
+          "hypridle"
           "waybar"
           "hyprctl setcursor ${cursorTheme} ${cursorSize}"
         ];
