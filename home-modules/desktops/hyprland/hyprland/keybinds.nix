@@ -24,7 +24,7 @@
       # Всякое
       "$mod, Q, killactive"
       "$mod, F, fullscreen"
-      "$mod, T, exec, kitty"
+      "$mod, T, exec, ghostty"
       "$mod, V, togglefloating"
       "$mod, R, exec, rofi -show drun"
       "$mod, L, exec, hyprlock"
