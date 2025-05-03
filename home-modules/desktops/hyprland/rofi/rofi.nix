@@ -5,7 +5,13 @@
     rofi-wayland
   ];
 
-  home.file.".config/rofi/theme.rasi".source = ./theme.rasi;
+  home.file.".config/rofi/base.rasi".source = ./base.rasi;
+  home.file.".config/rofi/launcher.rasi".source = ./launcher.rasi;
+  home.file.".config/rofi/powermenu.rasi".source = ./powermenu.rasi;
+  home.file.".local/bin/powermenu.sh" = {
+    source = ./powermenu.sh;
+    executable = true;
+  };
 
   programs.rofi = {
     enable = true;
@@ -33,6 +39,6 @@
       font = "JetBrainsMono Nerd Font SemiBold 14";
       click-to-exit = true;
     };
-    theme = "theme";
+    theme = "launcher";
   };
 }

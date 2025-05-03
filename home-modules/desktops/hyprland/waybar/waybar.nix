@@ -119,7 +119,7 @@
         "custom/power" = {
           format = "⏻";
           tooltip = false;
-          on-click = "wlogout"
+          on-click = "${config.home.homeDirectory}/.local/bin/powermenu.sh";
         };
       };
     };

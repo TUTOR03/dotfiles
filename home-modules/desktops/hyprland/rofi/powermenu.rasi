@@ -1,0 +1,5 @@
+@import "base.rasi"
+
+listview { lines: 3; spacing: 8px; }
+
+element { children: [ element-text ]; }
