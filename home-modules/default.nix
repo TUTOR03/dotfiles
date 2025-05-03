@@ -24,5 +24,6 @@
     ./others/obs.nix
     ./others/htop.nix
     ./others/neofetch.nix
+    ./others/thunar.nix
   ];
 }

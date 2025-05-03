@@ -135,4 +135,5 @@
   obs.enable = true;
   htop.enable = true;
   neofetch.enable = true;
+  thunar.enable = true;
 }
