@@ -36,6 +36,16 @@ window#waybar {
   margin: 0px 4px;
 }
 
+#custom-power {
+  background-color: #504945;
+  color: #ebdbb2;
+  border-radius: 6;
+  min-width: 28px;
+  min-height: 32px;
+  margin: 0px 4px;
+  padding-right: 4px;
+}
+
 #workspaces {
   all: unset;
 }
