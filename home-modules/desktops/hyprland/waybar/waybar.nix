@@ -32,6 +32,7 @@
           "pulseaudio"
           "hyprland/language"
           "battery"
+          "custom/power"
         ];
 
         clock = {
@@ -113,6 +114,12 @@
           format-plugged = "󰂄 {capacity}%";
           format-icons = [ "󰁻" "󰁼" "󰁾" "󰂀" "󰂂" "󰁹" ];
           tooltip = true;
+        };
+
+        "custom/power" = {
+          format = "⏻";
+          tooltip = false;
+          on-click = "wlogout"
         };
       };
     };
