@@ -51,6 +51,8 @@
     adwaita-qt
     dig
     dnsutils
+    hiddify-app
+    nekoray
   ];
 
   programs.bash = {
