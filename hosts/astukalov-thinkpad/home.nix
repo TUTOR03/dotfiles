@@ -138,4 +138,6 @@
   htop.enable = true;
   neofetch.enable = true;
   thunar.enable = true;
+
+  steam.enable = true;
 }

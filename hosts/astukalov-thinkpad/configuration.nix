@@ -63,4 +63,17 @@
   services.logind.lidSwitch = "suspend";
 
   services.resolved.enable = true;
+
+  programs.gamemode = {
+    enable = true;
+    settings = {
+      general = {
+        renice = 10;
+      };
+      gpu = {
+        apply_gpu_optimisations = "accept";
+        gpu_device = 0;
+      };
+    };
+  };
 }
