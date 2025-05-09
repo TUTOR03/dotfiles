@@ -53,6 +53,7 @@
     dnsutils
     hiddify-app
     nekoray
+    texlive.combined.scheme-full
   ];
 
   programs.bash = {

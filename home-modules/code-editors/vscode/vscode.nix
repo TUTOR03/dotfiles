@@ -28,6 +28,10 @@
         
         # Nix
         bbenoist.nix
+
+        # Latex
+        james-yu.latex-workshop
+        tecosaur.latex-utilities
         
         # Поддержка форматов файлов
         redhat.vscode-yaml
