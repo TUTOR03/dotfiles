@@ -8,7 +8,12 @@
   config = lib.mkIf config.google-chrome.enable {
     programs.google-chrome = {
       enable = true;
-      commandLineArgs = [ "--force-dark-mode" "--enable-features=WebUIDarkMode" ];
+      commandLineArgs =
+      [ 
+        "--force-dark-mode"
+        "--enable-features=WebUIDarkMode" 
+        # "--proxy-server=127.0.0.1:2080" 
+      ];
     };
   };
 }

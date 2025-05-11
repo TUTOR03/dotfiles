@@ -54,6 +54,8 @@
     hiddify-app
     nekoray
     texlive.combined.scheme-full
+    networkmanagerapplet
+    blueman
   ];
 
   programs.bash = {
