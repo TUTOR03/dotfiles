@@ -56,6 +56,7 @@
     texlive.combined.scheme-full
     networkmanagerapplet
     blueman
+    obsidian
   ];
 
   programs.bash = {
