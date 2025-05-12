@@ -17,9 +17,11 @@
         "rust"
         "svelte"
         "toml"
+        "material-icon-theme"
       ];
       userSettings = {
         theme = "Gruvbox Dark";
+        icon_theme = "Material Icon Theme";
         ui_font_size = 16;
         buffer_font_size = 16;
         buffer_font_family = "JetBrainsMono Nerd Font";
