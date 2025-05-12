@@ -117,6 +117,7 @@
 
   # Редакторы кода
   vscode.enable = true;
+  zed.enable = true;
 
   # Языки программирования
   nodejs = {

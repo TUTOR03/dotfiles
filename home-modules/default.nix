@@ -7,6 +7,7 @@
     ./browsers/google-chrome.nix
     # Code-editors
     ./code-editors/vscode/vscode.nix
+    ./code-editors/zed/zed.nix
     # Langs
     ./langs/nodejs.nix
     ./langs/rust.nix
