@@ -71,6 +71,7 @@
 
         temperature = {
           format = " {temperatureC}°C";
+          thermal-zone = 7;
           interval = 10;
           tooltip = false;
         };

@@ -18,6 +18,8 @@
     XDG_SESSION_TYPE = "wayland";
     QT_STYLE_OVERRIDE = "adwaita-dark";
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+    FREETYPE_PROPERTIES = "cff:no-stem-darkening=0 autofitter:no-stem-darkening=0";
+    _JAVA_AWT_WM_NONREPARENTING = "1";
   };
 
   gtk = {
@@ -57,6 +59,13 @@
     networkmanagerapplet
     blueman
     obsidian
+    wineWowPackages.stable
+    winetricks
+    corefonts
+    dxvk
+    fontconfig
+    freetype
+    heroic
   ];
 
   programs.bash = {
