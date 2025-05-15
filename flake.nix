@@ -48,6 +48,10 @@
             };
             hyprland = inputs.hyprland.packages.${system}.hyprland;
             zed-editor = inputs.nixpkgs-unstable.legacyPackages.${system}.zed-editor;
+            vscode = (import nixpkgs-unstable {
+              inherit system;
+              config.allowUnfree = true;
+            }).vscode;
           })
         ];
       };
