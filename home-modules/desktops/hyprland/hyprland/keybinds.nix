@@ -28,7 +28,7 @@
       "$mod, V, togglefloating"
       "$mod, R, exec, rofi -show drun"
       "$mod, L, exec, hyprlock"
-      
+
       # Перемещение фокуса между окнами
       "$mod, left, movefocus, l"
       "$mod, down, movefocus, d"

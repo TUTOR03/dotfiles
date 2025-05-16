@@ -4,7 +4,8 @@ let
   stableRust = pkgs.rust-bin.stable.latest.default.override {
     extensions = [ "rust-src" "rust-analyzer" "clippy" ];
   };
-in {
+in
+{
   options = {
     rust.enable = lib.mkEnableOption "enables Rust";
   };

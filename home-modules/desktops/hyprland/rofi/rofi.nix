@@ -31,7 +31,7 @@
 
       # Drun
       display-drun = "";
-      drun-categories =  "";
+      drun-categories = "";
       drun-match-fields = "name,generic,exec,categories,keywords";
       drun-display-format = "{icon} {name}";
 

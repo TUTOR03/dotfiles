@@ -25,7 +25,7 @@
       # Включение поддержки гибридной графики
       prime = {
         sync.enable = true;
-       
+
         # Inter GPU
         intelBusId = "PCI:0:2:0";
         # NVIDIA GPU

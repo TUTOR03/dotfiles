@@ -66,6 +66,7 @@
     fontconfig
     freetype
     heroic
+    nixpkgs-fmt
   ];
 
   programs.bash = {

@@ -20,16 +20,18 @@
     );
 
     # Алиасы для конкретных версий
-    programs.bash.shellAliases = let
-      mkAlias = cmd: pkg: pathPkg: {
-        name = "${cmd}_${pkg.version}";
-        value = "${pathPkg}/bin/${cmd}";
-      };
-    in lib.listToAttrs (
-      (lib.forEach config.nodejs.versions (pkg: mkAlias "node" pkg pkg)) ++
-      (lib.forEach config.nodejs.versions (pkg: mkAlias "npm" pkg pkg)) ++
-      (lib.forEach config.nodejs.versions (pkg: mkAlias "yarn" pkg pkgs.yarn)) ++
-      (lib.forEach config.nodejs.versions (pkg: mkAlias "pnpm" pkg pkgs.pnpm))
-    );
+    programs.bash.shellAliases =
+      let
+        mkAlias = cmd: pkg: pathPkg: {
+          name = "${cmd}_${pkg.version}";
+          value = "${pathPkg}/bin/${cmd}";
+        };
+      in
+      lib.listToAttrs (
+        (lib.forEach config.nodejs.versions (pkg: mkAlias "node" pkg pkg)) ++
+        (lib.forEach config.nodejs.versions (pkg: mkAlias "npm" pkg pkg)) ++
+        (lib.forEach config.nodejs.versions (pkg: mkAlias "yarn" pkg pkgs.yarn)) ++
+        (lib.forEach config.nodejs.versions (pkg: mkAlias "pnpm" pkg pkgs.pnpm))
+      );
   };
 }

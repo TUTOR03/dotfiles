@@ -15,24 +15,25 @@
 
         # Go
         golang.go
-        
+
         # Python
         ms-python.python
         ms-python.vscode-pylance
         ms-python.black-formatter
         ms-python.debugpy
         ms-python.isort
-        
+
         # Svelte
         svelte.svelte-vscode
-        
+
         # Nix
         bbenoist.nix
+        jnoortheen.nix-ide
 
         # Latex
         james-yu.latex-workshop
         tecosaur.latex-utilities
-        
+
         # Поддержка форматов файлов
         redhat.vscode-yaml
         tamasfe.even-better-toml

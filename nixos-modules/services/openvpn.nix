@@ -5,7 +5,7 @@
     openvpn.enable = lib.mkEnableOption "enables OpenVPN client with YubiKey support";
     openvpn.servers = lib.mkOption {
       type = lib.types.attrsOf lib.types.attrs;
-      default = {};
+      default = { };
       description = "OpenVPN server configurations";
     };
   };

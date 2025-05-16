@@ -14,8 +14,8 @@
   networking.hostName = "astukalov-thinkpad";
   networking.networkmanager.enable = true;
   networking.hosts = {
-    "10.13.41.171" = ["auth.vk.team" "authcorp.mail.ru"];
-    "10.13.34.186" = [ "confluence.vk.team"];
+    "10.13.41.171" = [ "auth.vk.team" "authcorp.mail.ru" ];
+    "10.13.34.186" = [ "confluence.vk.team" ];
   };
 
   time.timeZone = "Europe/Moscow";

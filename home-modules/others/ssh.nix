@@ -5,7 +5,7 @@
     ssh.enable = lib.mkEnableOption "enables ssh";
     ssh.keys = lib.mkOption {
       type = lib.types.listOf lib.types.str;
-      default = [];
+      default = [ ];
       description = "List of paths to SSH private keys to be added to ssh-agent";
     };
   };

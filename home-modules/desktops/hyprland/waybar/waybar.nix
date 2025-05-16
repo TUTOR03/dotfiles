@@ -5,7 +5,7 @@
     waybar
   ];
 
-  home.file.".config/waybar/style.css".source = ./style.css ;
+  home.file.".config/waybar/style.css".source = ./style.css;
 
   programs.waybar = {
     enable = true;
@@ -16,12 +16,12 @@
         margin = "0";
         spacing = 0;
 
-        modules-left = [ 
+        modules-left = [
           "clock"
-          "hyprland/workspaces" 
-          "tray" 
+          "hyprland/workspaces"
+          "tray"
         ];
-        modules-center = [];
+        modules-center = [ ];
         modules-right = [
           "temperature"
           "cpu"

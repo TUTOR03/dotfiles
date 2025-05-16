@@ -191,6 +191,13 @@
     "editor.defaultFormatter": "James-Yu.latex-workshop"
   },
 
+  // Nix
+  "nix.formatterPath": "nixpkgs-fmt",
+  "[nix]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "jnoortheen.nix-ide"
+  },
+
   // Разное
   "security.workspace.trust.untrustedFiles": "open",
   "nxConsole.showNodeVersionOnStartup": false,
