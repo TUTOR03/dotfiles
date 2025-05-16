@@ -22,19 +22,19 @@
           on-resume = "brightnessctl -r";
         }
         # Запускаем экрна блокировки после 2.5 минут
-        {
-          timeout = 150;
-          on-timeout = "pidof hyprlock || hyprlock";
-        }
+        # {
+        #   timeout = 150;
+        #   on-timeout = "pidof hyprlock || hyprlock";
+        # }
         # Отключаем экран и включаем экономию батареи после 3 минут
+        # {
+        #   timeout = 180;
+        #   on-timeout = "hyprctl dispatch dpms off";
+        #   on-resume = "hyprctl dispatch dpms on && brightnessctl -r";
+        # }
+        # Переходим в режим сна после 30 минут
         {
-          timeout = 180;
-          on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on && brightnessctl -r";
-        }
-        # Переходим в режим сна после 10 минут
-        {
-          timeout = 600;
+          timeout = 1800;
           on-timeout = "systemctl suspend";
         }
       ];
