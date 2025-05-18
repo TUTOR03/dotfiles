@@ -2,9 +2,12 @@
 
 {
   imports = [
-    ./services/libinput.nix
+    # Шаблон для всех хостов
+    ./host.nix
+    # Десктопы
+    ./desktops/hyprland.nix
+    # Сервисы
     ./services/xserver.nix
     ./services/openvpn.nix
-    ./hyprland.nix
   ];
 }

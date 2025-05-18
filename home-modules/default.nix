@@ -2,29 +2,22 @@
 
 {
   imports = [
-    # Browsers
-    ./browsers/firefox.nix
+    # Браузеры
     ./browsers/google-chrome.nix
-    # Code-editors
+    # Редакторы кода
     ./code-editors/vscode/vscode.nix
     ./code-editors/zed/zed.nix
-    # Langs
+    # Языки
     ./langs/nodejs.nix
     ./langs/rust.nix
-    # Media
-    ./media/vlc.nix
-    ./media/audacity.nix
-    ./media/nomacs.nix
-    # Games
+    # Игры
     ./games/steam.nix
-    # Desktops
+    # Десктопы
     ./desktops/hyprland/hyprland.nix
-    # Others
-    ./others/git.nix
-    ./others/ssh.nix
-    ./others/obs.nix
-    ./others/htop.nix
-    ./others/neofetch.nix
-    ./others/thunar.nix
+    # Другое
+    ./other/git.nix
+    ./other/ssh.nix
+    ./other/vlc.nix
+    ./other/thunar.nix
   ];
 }

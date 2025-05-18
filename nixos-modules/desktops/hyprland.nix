@@ -3,7 +3,7 @@
 {
   options = {
     hyprland.enable = lib.mkEnableOption "enables Hyprland";
-    hyprland.user = lib.mkOption {
+    hyprland.username = lib.mkOption {
       type = lib.types.str;
       description = "Username to automatically log in and start Hyprland for";
     };
@@ -18,17 +18,12 @@
 
     services.greetd = {
       enable = true;
-      restart = true;
       settings = {
         default_session = {
           command = "${pkgs.hyprland}/bin/Hyprland";
-          user = config.hyprland.user;
+          user = config.hyprland.username;
         };
       };
     };
-
-    environment.systemPackages = with pkgs; [
-      ghostty
-    ];
   };
 }

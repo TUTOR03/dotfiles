@@ -1,79 +1,33 @@
 { config, pkgs, ... }:
 
+let
+  hostname = "astukalov-thinkpad";
+  username = "astukalov";
+in
 {
   imports = [
     ./hardware-configuration.nix
   ];
 
-  system.stateVersion = "24.11";
+  host = {
+    inherit hostname;
+    inherit username;
+  };
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.luks.devices."luks-c237b1e9-8f18-4da1-88e2-96e5d857aac0".device = "/dev/disk/by-uuid/c237b1e9-8f18-4da1-88e2-96e5d857aac0";
 
-  networking.hostName = "astukalov-thinkpad";
-  networking.networkmanager.enable = true;
-  networking.hosts = {
-    "10.13.41.171" = [ "auth.vk.team" "authcorp.mail.ru" ];
-    "10.13.34.186" = [ "confluence.vk.team" ];
-  };
-
-  time.timeZone = "Europe/Moscow";
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-
-  users.users.astukalov = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
-  };
-
-  nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
-    settings = {
-      auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
-    };
-  };
-
-  environment.systemPackages = with pkgs; [
-    home-manager
-  ];
-
-  openvpn.enable = true;
-
-  # Поддержка Hyprland
   hyprland = {
     enable = true;
-    user = "astukalov";
+    inherit username;
   };
 
-  # Поддержка тачпада
-  libinput.enable = true;
-
-  # Поддержка режима сна
+  openvpn.enable = true;
+  services.libinput.enable = true;
   powerManagement.enable = true;
   services.logind.lidSwitch = "suspend";
 
-  services.resolved.enable = true;
-
-  programs.gamemode = {
-    enable = true;
-    settings = {
-      general = {
-        renice = 10;
-      };
-      gpu = {
-        apply_gpu_optimisations = "accept";
-        gpu_device = 0;
-      };
-    };
+  networking.hosts = {
+    "10.13.41.171" = [ "auth.vk.team" "authcorp.mail.ru" ];
+    "10.13.34.186" = [ "confluence.vk.team" ];
   };
 }

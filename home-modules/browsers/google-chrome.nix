@@ -8,12 +8,13 @@
   config = lib.mkIf config.google-chrome.enable {
     programs.google-chrome = {
       enable = true;
-      commandLineArgs =
-        [
-          "--force-dark-mode"
-          "--enable-features=WebUIDarkMode"
-          # "--proxy-server=127.0.0.1:2080" 
-        ];
+    };
+
+    xdg.mimeApps.defaultApplications = {
+      "x-scheme-handler/http" = "google-chrome.desktop";
+      "x-scheme-handler/https" = "google-chrome.desktop";
+      "text/html" = "google-chrome.desktop";
+      "application/xhtml+xml" = "google-chrome.desktop";
     };
   };
 }

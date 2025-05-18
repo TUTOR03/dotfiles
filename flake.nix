@@ -58,14 +58,14 @@
     {
       # Конфигурации для хостов NixOS
       nixosConfigurations = {
-        msi-laptop = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit pkgs; };
-          modules = [
-            ./hosts/msi-laptop/configuration.nix
-            ./nixos-modules
-          ];
-        };
+        # msi-laptop = nixpkgs.lib.nixosSystem {
+        #   inherit system;
+        #   specialArgs = { inherit pkgs; };
+        #   modules = [
+        #     ./hosts/msi-laptop/configuration.nix
+        #     ./nixos-modules
+        #   ];
+        # };
 
         astukalov-thinkpad = nixpkgs.lib.nixosSystem {
           inherit system;
@@ -79,13 +79,13 @@
 
       # Конфигурации для пользователей Home Manager
       homeConfigurations = {
-        "sdev@msi-laptop" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            ./hosts/msi-laptop/home.nix
-            ./home-modules
-          ];
-        };
+        # "sdev@msi-laptop" = home-manager.lib.homeManagerConfiguration {
+        #   inherit pkgs;
+        #   modules = [
+        #     ./hosts/msi-laptop/home.nix
+        #     ./home-modules
+        #   ];
+        # };
 
         "astukalov@astukalov-thinkpad" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
