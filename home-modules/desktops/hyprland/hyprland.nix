@@ -14,6 +14,11 @@
         default = "22";
         description = "Cursor size for Hyprland";
       };
+      monitors = lib.mkOption {
+        type = lib.types.listOf lib.types.str;
+        default = [ ",preferred,auto,1" ];
+        description = "List of monitor configurations for Hyprland";
+      };
     };
   };
 
