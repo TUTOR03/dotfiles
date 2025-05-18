@@ -11,9 +11,9 @@
       type = lib.types.path;
       description = "Path to TLS auth key file";
     };
-    vkvpn.pkcs11IdFile = lib.mkOption {
+    vkvpn.pkcs11IdPath = lib.mkOption {
       type = lib.types.path;
-      description = "Path to file containing pkcs11-id for OpenVPN authentication";
+      description = "pkcs11-id for OpenVPN authentication";
     };
   };
 
@@ -28,7 +28,6 @@
       pull
       tls-client
       ca ${config.vkvpn.caPath}
-      pkcs11-id '${builtins.readFile config.vkvpn.pkcs11IdFile}'
       pkcs11-providers ${pkgs.opensc}/lib/opensc-pkcs11.so
       remote-cert-tls server
       route remote_host default net_gateway
@@ -38,7 +37,9 @@
     '';
 
     programs.bash.shellAliases = {
-      vk-vpn = "sudo ${pkgs.openvpn}/bin/openvpn --config ${config.home.homeDirectory}/.openvpn/vkvpn/config.conf";
+      vk-vpn = ''
+        sudo ${pkgs.openvpn}/bin/openvpn --config ${config.home.homeDirectory}/.openvpn/vkvpn/config.conf --pkcs11-id "$(cat ${config.vkvpn.pkcs11IdPath})"
+      '';
     };
   };
 }

@@ -16,6 +16,10 @@
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -25,6 +29,7 @@
     , home-manager
     , rust-overlay
     , vscode-extensions
+    , sops-nix
     , ...
     }@inputs:
     let
@@ -58,15 +63,6 @@
     {
       # Конфигурации для хостов NixOS
       nixosConfigurations = {
-        # msi-laptop = nixpkgs.lib.nixosSystem {
-        #   inherit system;
-        #   specialArgs = { inherit pkgs; };
-        #   modules = [
-        #     ./hosts/msi-laptop/configuration.nix
-        #     ./nixos-modules
-        #   ];
-        # };
-
         astukalov-thinkpad = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit pkgs; };
@@ -79,19 +75,12 @@
 
       # Конфигурации для пользователей Home Manager
       homeConfigurations = {
-        # "sdev@msi-laptop" = home-manager.lib.homeManagerConfiguration {
-        #   inherit pkgs;
-        #   modules = [
-        #     ./hosts/msi-laptop/home.nix
-        #     ./home-modules
-        #   ];
-        # };
-
         "astukalov@astukalov-thinkpad" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
             ./hosts/astukalov-thinkpad/home.nix
             ./home-modules
+            sops-nix.homeManagerModules.sops
           ];
         };
       };

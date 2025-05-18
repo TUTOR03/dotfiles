@@ -16,6 +16,7 @@ in
   programs.bash = {
     enable = true;
     shellAliases = {
+      cls = "clear";
       rebuild = "sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/dotfiles#${hostname}";
       rebuild-home = "home-manager switch --flake ${config.home.homeDirectory}/dotfiles#${username}@${hostname}";
     };
@@ -78,10 +79,11 @@ in
   thunar.enable = true;
   vlc.enable = true;
 
+  sops.enable = true;
   vkvpn = {
     enable = true;
-    caPath = "${config.home.homeDirectory}/secrets/vk-vpn/ca.crt";
-    tlsAuthPath = "${config.home.homeDirectory}/secrets/vk-vpn/ta.key";
-    pkcs11IdFile = "${config.home.homeDirectory}/secrets/vk-vpn/pkcs11-id";
+    caPath = config.sops.secrets."ca.crt".path;
+    tlsAuthPath = config.sops.secrets."ta.key".path;
+    pkcs11IdPath = config.sops.secrets.pkcs11-id.path;
   };
 }

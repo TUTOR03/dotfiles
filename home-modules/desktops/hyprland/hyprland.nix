@@ -85,9 +85,8 @@
         ];
 
         exec-once = [
-          "xdg-desktop-portal-hyprland"
-          "hyprctl setcursor ${config.hyprland.cursorTheme} ${config.hyprland.cursorTheme}"
           "waybar"
+          "hyprctl setcursor ${config.hyprland.cursorTheme} ${config.hyprland.cursorTheme}"
           "hypridle"
         ];
 
