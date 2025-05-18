@@ -29,7 +29,7 @@
       enable32Bit = true;
     };
 
-    users.users.{config.host.username} = {
+    users.users.${config.host.username} = {
       isNormalUser = true;
       extraGroups = [ "wheel" "networkmanager" ];
     };

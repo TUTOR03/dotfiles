@@ -74,7 +74,7 @@
       };
     };
 
-    home.file.".local/share/icons/${config.hyprland.cursorTheme}".source = "${self}/assets/cursors/${config.hyprland.cursorTheme}";
+    home.file.".local/share/icons/${config.hyprland.cursorTheme}".source = ../../../assets/cursors/${config.hyprland.cursorTheme};
 
     wayland.windowManager.hyprland = {
       enable = true;

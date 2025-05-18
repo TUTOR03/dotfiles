@@ -5,6 +5,10 @@ let
   username = "astukalov";
 in
 {
+  imports = [
+    ./home-modules
+  ];
+
   home.username = username;
   home.homeDirectory = "/home/${username}";
   home.stateVersion = "24.11";
