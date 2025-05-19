@@ -31,7 +31,7 @@
 
     users.users.${config.host.username} = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" ];
+      extraGroups = [ "wheel" "networkmanager" "lp" ];
     };
 
     nix = {
@@ -48,6 +48,13 @@
 
     environment.systemPackages = with pkgs; [
       home-manager
+      cups
+      system-config-printer
     ];
+
+    services.printing = {
+      enable = true;
+      drivers = with pkgs; [ hplip gutenprint ];
+    };
   };
 }

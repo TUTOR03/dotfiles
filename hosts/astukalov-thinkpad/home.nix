@@ -86,6 +86,7 @@ in
   # Прочее
   thunar.enable = true;
   vlc.enable = true;
+  printers.enable = true;
 
   sops.enable = true;
   vkvpn = {
