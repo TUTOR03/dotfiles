@@ -86,12 +86,12 @@
       settings = {
         env = [
           "XCURSOR_THEME,${config.hyprland.cursorTheme}"
-          "XCURSOR_SIZE,${config.hyprland.cursorTheme}"
+          "XCURSOR_SIZE,${config.hyprland.cursorSize}"
         ];
 
         exec-once = [
           "waybar"
-          "hyprctl setcursor ${config.hyprland.cursorTheme} ${config.hyprland.cursorTheme}"
+          "hyprctl setcursor ${config.hyprland.cursorTheme} ${config.hyprland.cursorSize}"
           "hypridle"
         ];
 
