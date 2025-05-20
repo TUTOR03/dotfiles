@@ -3,8 +3,8 @@
   font-size: 14px;
   font-weight: bold;
   border: none;
-  border-radius: 0;
-  min-height: 0;
+  border-radius: 0px;
+  min-height: 0px;
 }
 
 window#waybar {
@@ -15,7 +15,7 @@ window#waybar {
 .modules-left,
 .modules-center,
 .modules-right {
-  padding: 4px 0;
+  padding: 4px 0px;
 }
 
 #cpu,
@@ -32,14 +32,14 @@ window#waybar {
   background-color: #504945;
   padding: 2px 6px;
   color: #ebdbb2;
-  border-radius: 6;
+  border-radius: 6px;
   margin: 0px 4px;
 }
 
 #custom-power {
   background-color: #504945;
   color: #ebdbb2;
-  border-radius: 6;
+  border-radius: 6px;
   min-width: 28px;
   min-height: 32px;
   margin: 0px 4px;
@@ -54,7 +54,7 @@ window#waybar {
   all: unset;
   background-color: #504945;
   color: #ebdbb2;
-  border-radius: 6;
+  border-radius: 6px;
   min-width: 32px;
   min-height: 32px;
   margin: 0px 4px;

@@ -9,7 +9,7 @@
     programs.vscode = {
       enable = true;
 
-      extensions = with pkgs.vscode-marketplace; [
+      profiles.default.extensions = with pkgs.vscode-marketplace; [
         # Rust
         rust-lang.rust-analyzer
 

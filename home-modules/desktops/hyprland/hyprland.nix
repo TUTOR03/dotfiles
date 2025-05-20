@@ -40,7 +40,7 @@
       xdg-desktop-portal-hyprland
       hyprcursor
       fontconfig
-      nerdfonts
+      nerd-fonts.jetbrains-mono
       gnome-themes-extra
       adwaita-qt
     ];
