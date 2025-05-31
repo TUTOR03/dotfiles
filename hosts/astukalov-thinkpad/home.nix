@@ -79,6 +79,11 @@ in
     enable = true;
     keys = [ "~/.ssh/id_rsa_thinkpad_github" "~/.ssh/id_rsa_thinkpad_vk_gitlab" ];
   };
+  programs.ssh = {
+    extraConfig = ''
+      AddressFamily inet
+    '';
+  };
   git = {
     enable = true;
     userName = "TUTOR03";
