@@ -1,4 +1,4 @@
-{ config, hostname, username, pkgs, pkgs-unstable, ... }:
+{ config, lib, hostname, username, pkgs, pkgs-unstable, ... }:
 
 {
   imports = [
@@ -10,6 +10,7 @@
 
   networking.hostName = hostname;
   networking.networkmanager.enable = true;
+  networking.useDHCP = lib.mkDefault true;
 
   time.timeZone = "Europe/Moscow";
   i18n.defaultLocale = "en_US.UTF-8";

@@ -52,6 +52,7 @@
               nixpkgs = {
                 inherit overlays;
                 config.allowUnfree = true;
+                hostPlatform =  nixpkgs.lib.mkDefault "${system}";
               };
             }
             ./system.nix

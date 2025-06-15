@@ -12,8 +12,9 @@
         "nvme"
         "usb_storage"
         "sd_mod"
+        "rtsx_pci_sdmmc"
       ];
-      kernelModules = [ ];
+      kernelModules = [ "dm-snapshot" ];
     };
 
     kernelModules = [ "kvm-intel" ];
