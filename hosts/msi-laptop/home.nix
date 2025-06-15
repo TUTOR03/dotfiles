@@ -10,6 +10,10 @@
     enableCompletion = true;
   };
 
+  programs.plasma = {
+    enable = true;
+  };
+
   home.packages = with pkgs; [
     neofetch
     htop
