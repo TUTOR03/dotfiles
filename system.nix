@@ -1,4 +1,4 @@
-{ config, inputs, hostname, username, pkgs, pkgs-unstable, ... }:
+{ config, hostname, username, pkgs, pkgs-unstable, ... }:
 
 {
   imports = [
@@ -26,7 +26,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {
-      inherit inputs hostname username pkgs-unstable;
+      inherit hostname username pkgs-unstable;
     };
     users.${ username} = {
       imports = [

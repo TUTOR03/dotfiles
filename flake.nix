@@ -26,7 +26,7 @@
     , rust-overlay
     , vscode-extensions
     , ...
-    }@inputs:
+    }:
     let
       overlays = [
         rust-overlay.overlays.default
@@ -45,7 +45,7 @@
         nixpkgs.lib.nixosSystem {
           inherit system;
 
-          specialArgs = { inherit inputs pkgs-unstable hostname username; };
+          specialArgs = { inherit pkgs-unstable hostname username; };
           modules = [
             {
               nixpkgs = {
@@ -73,6 +73,10 @@
                     pkcs11helper = prev.pkcs11helper;
                   };
                 })
+              ];
+
+              home-manager.extraModules = [
+                sops-nix.homeManagerModules.sops
               ];
             }
           ];

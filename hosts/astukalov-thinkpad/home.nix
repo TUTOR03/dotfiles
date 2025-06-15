@@ -1,8 +1,7 @@
-{ config, inputs, hostname, username, pkgs, pkgs-unstable, ... }:
+{ config, hostname, username, pkgs, pkgs-unstable, ... }:
 
 {
   imports = [
-    inputs.sops-nix.homeManagerModules.sops
     ./home-modules
   ];
 
