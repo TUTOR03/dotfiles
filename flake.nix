@@ -34,27 +34,25 @@
       ];
 
       mkHost =
-        { system, hostname, username, extraModules ? [] }:
+        { system, hostname, username, extraModules ? [ ] }:
         let
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-            overlays = overlays;
-          };
-
           pkgs-unstable = import nixpkgs-unstable {
             inherit system;
+            inherit overlays;
             config.allowUnfree = true;
-            overlays = overlays;
           };
-
-          sharedArgs = { inherit inputs pkgs pkgs-unstable hostname username; };
         in
         nixpkgs.lib.nixosSystem {
           inherit system;
-          
-          specialArgs = sharedArgs;
+
+          specialArgs = { inherit inputs pkgs-unstable hostname username; };
           modules = [
+            {
+              nixpkgs = {
+                inherit overlays;
+                config.allowUnfree = true;
+              };
+            }
             ./system.nix
             home-manager.nixosModules.home-manager
           ] ++ extraModules;

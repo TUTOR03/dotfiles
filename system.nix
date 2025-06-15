@@ -1,4 +1,4 @@
-{ config, hostname, username, pkgs, pkgs-unstable, ... }:
+{ config, inputs, hostname, username, pkgs, pkgs-unstable, ... }:
 
 {
   imports = [
@@ -26,11 +26,11 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {
-      inherit pkgs pkgs-unstable;
+      inherit inputs hostname username pkgs-unstable;
     };
-    users.${username} = {
+    users.${ username} = {
       imports = [
-        ./hosts/${hostname}/home.nix
+        ./hosts/${ hostname}/home.nix
         ./home-modules
       ];
     };

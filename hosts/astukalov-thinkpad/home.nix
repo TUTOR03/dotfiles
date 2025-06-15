@@ -30,7 +30,6 @@
     shellAliases = {
       cls = "clear";
       rebuild = "sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/dotfiles#${hostname}";
-      rebuild-home = "home-manager switch --flake ${config.home.homeDirectory}/dotfiles#${username}@${hostname}";
     };
   };
 
