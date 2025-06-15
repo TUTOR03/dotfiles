@@ -1,11 +1,8 @@
-{ config, pkgs, ... }:
+{ config, inputs, hostname, username, pkgs, pkgs-unstable, ... }:
 
-let
-  hostname = "astukalov-thinkpad";
-  username = "astukalov";
-in
 {
   imports = [
+    inputs.sops-nix.homeManagerModules.sops
     ./home-modules
   ];
 

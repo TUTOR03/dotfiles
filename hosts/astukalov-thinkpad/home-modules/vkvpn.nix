@@ -18,7 +18,6 @@
   };
 
   config = lib.mkIf config.vkvpn.enable {
-
     home.file.".openvpn/vkvpn/config.conf".text = ''
       remote barbosubi.corp.mail.ru 443 tcp-client
       nobind

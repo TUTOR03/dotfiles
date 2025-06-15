@@ -1,17 +1,16 @@
-{ config, pkgs, ... }:
+{ config, hostname, username, pkgs, pkgs-unstable, ... }:
 
-let
-  hostname = "astukalov-thinkpad";
-  username = "astukalov";
-in
 {
   imports = [
     ./hardware-configuration.nix
   ];
 
-  host = {
-    inherit hostname;
-    inherit username;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
   };
 
   boot.initrd.luks.devices."luks-c237b1e9-8f18-4da1-88e2-96e5d857aac0".device = "/dev/disk/by-uuid/c237b1e9-8f18-4da1-88e2-96e5d857aac0";
