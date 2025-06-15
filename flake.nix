@@ -22,6 +22,7 @@
     { nixpkgs
     , nixpkgs-unstable
     , nixos-hardware
+    , disko
     , home-manager
     , sops-nix
     , rust-overlay
