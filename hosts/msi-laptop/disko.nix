@@ -12,7 +12,6 @@
             content = {
               type = "filesystem";
               format = "vfat";
-              label = "ESP";
               mountpoint = "/boot";
               mountOptions = [ "umask=0077" ];
             };
@@ -44,7 +43,6 @@
           size = "500G";
           content = {
             type = "btrfs";
-            label = "nixos-root";
             extraArgs = [ "-f" ];
             subvolumes = {
               "/root" = {
@@ -85,7 +83,6 @@
           size = "16G";
           content = {
             type = "swap";
-            label = "swap";
             resumeDevice = true;
           };
         };
