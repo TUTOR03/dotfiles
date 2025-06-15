@@ -40,7 +40,7 @@
       type = "lvm_vg";
       lvs = {
         root = {
-          size = "500G";
+          size = "100%";
           content = {
             type = "btrfs";
             extraArgs = [ "-f" ];
