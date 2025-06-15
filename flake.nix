@@ -4,7 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    disko.url = "github:nix-community/disko";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -13,7 +14,6 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     rust-overlay.url = "github:oxalica/rust-overlay";
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
@@ -21,6 +21,7 @@
   outputs =
     { nixpkgs
     , nixpkgs-unstable
+    , nixos-hardware
     , home-manager
     , sops-nix
     , rust-overlay
@@ -79,6 +80,16 @@
                 sops-nix.homeManagerModules.sops
               ];
             }
+          ];
+        };
+
+        msi-laptop = mkHost {
+          system = "x86_64-linux";
+          hostname = "msi-laptop";
+          username = "sdev";
+          extraModules = [
+            disko.nixosModules.disko
+            ./hosts/msi-laptop/disko.nix
           ];
         };
       };

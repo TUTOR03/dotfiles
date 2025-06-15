@@ -1,19 +1,21 @@
 # Dotfiles
 
-Коллекция всякого, чтобы всегда и везде воссоздать мою систему
+Конфигурация nix-os под разные хосты
 
 ## Disko
 
-Файл разметки диска при установке `NixOS`.
+Чтобы установить систему, используя disko файл:
 
 ```bash
-sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount ./disko.nix
+sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode disko <disko file path>
+
+sudo nixos-generate-config --root /mnt
+
+sudo nixos-install --flake .#<hostname>
 ```
 
-```bash
-sudo nixos-rebuild switch --flake .#msi-laptop
-```
+## Rebuild
 
 ```bash
-home-manager switch --flake .#sdev@msi-laptop
+sudo nixos-rebuild switch --flake .#<hostname>
 ```
