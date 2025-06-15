@@ -24,7 +24,6 @@
               name = "cryptroot";
               settings = {
                 allowDiscards = true;
-                askPassword = true;
               };
               content = {
                 type = "lvm_pv";
