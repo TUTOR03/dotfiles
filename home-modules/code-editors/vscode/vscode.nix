@@ -62,7 +62,7 @@
         ms-vscode.remote-explorer
         ms-playwright.playwright
         rangav.vscode-thunder-client
-        continue.continue
+        # continue.continue
 
         # UI расширения
         pkief.material-icon-theme
