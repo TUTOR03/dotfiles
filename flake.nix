@@ -59,7 +59,7 @@
               nixpkgs = {
                 inherit overlays;
                 config.allowUnfree = true;
-                hostPlatform =  nixpkgs.lib.mkDefault "${system}";
+                hostPlatform = nixpkgs.lib.mkDefault "${system}";
               };
             }
             ./system.nix
@@ -84,7 +84,7 @@
                 })
               ];
 
-              home-manager.extraModules = [
+              home-manager.sharedModules = [
                 sops-nix.homeManagerModules.sops
               ];
             }
@@ -100,7 +100,7 @@
             ./hosts/msi-laptop/disko.nix
             {
               home-manager.sharedModules = [
-                plasma-manager.homeManagerModules.plasma-manager 
+                plasma-manager.homeManagerModules.plasma-manager
               ];
             }
           ];

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, pkgs-unstable, lib, ... }:
 
 {
   options = {
@@ -8,8 +8,9 @@
   config = lib.mkIf config.vscode.enable {
     programs.vscode = {
       enable = true;
+      package = pkgs-unstable.vscode;
 
-      profiles.default.extensions = with pkgs.vscode-marketplace; [
+      profiles.default.extensions = with pkgs-unstable.vscode-marketplace; [
         # Rust
         rust-lang.rust-analyzer
 
@@ -61,7 +62,7 @@
         ms-vscode.remote-explorer
         ms-playwright.playwright
         rangav.vscode-thunder-client
-        # continue.continue
+        continue.continue
 
         # UI расширения
         pkief.material-icon-theme
