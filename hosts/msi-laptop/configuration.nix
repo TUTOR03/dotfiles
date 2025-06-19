@@ -14,16 +14,21 @@
 
     xserver = {
       enable = true;
-      videoDrivers = [ "amdgpu" ];
+      videoDrivers = [ "nvidia" ];
     };
 
     desktopManager.plasma6.enable = true;
     displayManager = {
       sddm = {
         enable = true;
-        wayland.enable = true;
+        wayland = {
+          enable = true;
+          compositor = "kwin";
+        };
       };
       defaultSession = "plasma";
     };
   };
+  
+  power-profiles-daemon.enable = true;
 }
