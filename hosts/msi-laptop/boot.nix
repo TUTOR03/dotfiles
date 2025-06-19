@@ -1,3 +1,5 @@
+{ config, ... }:
+
 {
   boot = {
     loader = {
@@ -18,6 +20,6 @@
     };
 
     kernelModules = [ "kvm-intel" ];
-    extraModulePackages = [ ];
+    extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
   };
 }

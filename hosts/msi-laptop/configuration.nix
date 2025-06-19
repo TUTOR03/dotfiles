@@ -14,7 +14,7 @@
 
     xserver = {
       enable = true;
-      videoDrivers = [ "nvidia" ];
+      videoDrivers = [ "nvidia" "intel" ];
     };
 
     desktopManager.plasma6.enable = true;
@@ -28,7 +28,7 @@
       };
       defaultSession = "plasma";
     };
-    
+
     power-profiles-daemon.enable = true;
   };
 
