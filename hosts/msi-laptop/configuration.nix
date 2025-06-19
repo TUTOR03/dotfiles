@@ -28,7 +28,8 @@
       };
       defaultSession = "plasma";
     };
+    
+    power-profiles-daemon.enable = true;
   };
-  
-  power-profiles-daemon.enable = true;
+
 }
