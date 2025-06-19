@@ -9,8 +9,6 @@
 
     opengl = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
     };
 
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
