@@ -5,6 +5,7 @@
     logind.lidSwitch = "suspend";
     libinput.enable = true;
     power-profiles-daemon.enable = true;
+    printing.enable = true;
 
     xserver = {
       enable = true;
@@ -29,7 +30,9 @@
       audio.enable = true;
       pulse.enable = true;
       alsa.enable = true;
-      jack.enable = false;
+      alsa.support32Bit = true;
     };
   };
+
+  security.rtkit.enable = true;
 }
