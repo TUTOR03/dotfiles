@@ -29,10 +29,10 @@
     , nixos-hardware
     , disko
     , home-manager
+    , plasma-manager
     , sops-nix
     , rust-overlay
     , vscode-extensions
-    , plasma-manager
     , ...
     }:
     let
@@ -42,24 +42,30 @@
       ];
 
       mkHost =
-        { system, hostname, username, useremail, extraModules ? [ ] }:
+        { system, hostName, userName, userEmail, extraModules ? [ ] }:
         let
           pkgs-unstable = import nixpkgs-unstable {
             inherit system;
             inherit overlays;
+
             config.allowUnfree = true;
           };
         in
         nixpkgs.lib.nixosSystem {
           inherit system;
 
-          specialArgs = { inherit pkgs-unstable hostname username useremail; };
+          specialArgs = { inherit hostName userName userEmail; };
           modules = [
             {
               nixpkgs = {
-                inherit overlays;
+                inherit system;
+                inherit overlays ++ [
+                  (final: prev: {
+                    unstable = pkgs-unstable;
+                  })
+                ];
+
                 config.allowUnfree = true;
-                hostPlatform = nixpkgs.lib.mkDefault "${system}";
               };
             }
             ./system.nix
@@ -69,28 +75,28 @@
     in
     {
       nixosConfigurations = {
-        astukalov-thinkpad = mkHost {
-          system = "x86_64-linux";
-          hostname = "astukalov-thinkpad";
-          username = "astukalov";
-          useremail = "astukalov@vk.team";
-          extraModules = [
-            {
-              nixpkgs.overlays = [
-                (final: prev: {
-                  openvpn = prev.openvpn.override {
-                    pkcs11Support = true;
-                    pkcs11helper = prev.pkcs11helper;
-                  };
-                })
-              ];
+        # astukalov-thinkpad = mkHost {
+        #   system = "x86_64-linux";
+        #   hostname = "astukalov-thinkpad";
+        #   username = "astukalov";
+        #   useremail = "astukalov@vk.team";
+        #   extraModules = [
+        #     {
+        #       nixpkgs.overlays = [
+        #         (final: prev: {
+        #           openvpn = prev.openvpn.override {
+        #             pkcs11Support = true;
+        #             pkcs11helper = prev.pkcs11helper;
+        #           };
+        #         })
+        #       ];
 
-              home-manager.sharedModules = [
-                sops-nix.homeManagerModules.sops
-              ];
-            }
-          ];
-        };
+        #       home-manager.sharedModules = [
+        #         sops-nix.homeManagerModules.sops
+        #       ];
+        #     }
+        #   ];
+        # };
 
         msi-laptop = mkHost {
           system = "x86_64-linux";

@@ -7,10 +7,6 @@
       enable32Bit = true;
     };
 
-    opengl = {
-      enable = true;
-    };
-
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
     nvidia = {

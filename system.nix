@@ -1,4 +1,4 @@
-{ config, lib, hostname, username, useremail, pkgs, pkgs-unstable, ... }:
+{ config, lib, hostName, userName, userEmail, pkgs ... }:
 
 {
   imports = [
@@ -9,8 +9,6 @@
   system.stateVersion = "25.05";
 
   networking.hostName = hostname;
-  networking.networkmanager.enable = true;
-  networking.useDHCP = lib.mkDefault true;
 
   time.timeZone = "Europe/Moscow";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -27,11 +25,11 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {
-      inherit hostname username useremail pkgs-unstable;
+      inherit hostName userName userEmail;
     };
     users.${username} = {
       imports = [
-        ./hosts/${ hostname}/home.nix
+        ./hosts/${hostname}/home
         ./home-modules
       ];
     };
