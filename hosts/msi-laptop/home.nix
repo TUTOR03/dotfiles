@@ -10,6 +10,29 @@
     enableCompletion = true;
   };
 
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+    initExtra = ''
+      [[ -r "${pkgs.bash-completion}/share/bash-completion/bash_completion" ]] && source "${pkgs.bash-completion}/share/bash-completion/bash_completion"
+
+      parse_git_branch() {
+        git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+      }
+
+      PS1='\[\033[38;5;245m\]\A \[\033[38;5;110m\]\u \[\033[38;5;108m\]~/$(basename "$(dirname "$PWD")")/$(basename "$PWD")\[\033[38;5;180m\]$(parse_git_branch)\[\033[38;5;245m\]$\[\033[0m\] '
+
+      if [ -x /usr/bin/dircolors ]; then
+        test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+        alias ls='ls --color=auto'
+      fi
+    '';
+    shellAliases = {
+      cls = "clear";
+      rebuild = "sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/dotfiles#${hostname}";
+    };
+  };
+
   programs.plasma = {
     enable = true;
 
