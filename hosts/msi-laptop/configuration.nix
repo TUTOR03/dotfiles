@@ -9,6 +9,8 @@
   powerManagement.enable = true;
   services.logind.lidSwitch = "suspend";
 
+  networking.wireless.enable = true;
+
   services = {
     libinput.enable = true;
 

@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   boot = {
@@ -6,6 +6,8 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
+
+    kernelPackages = pkgs.linuxPackages_latest;
 
     initrd = {
       availableKernelModules = [ 

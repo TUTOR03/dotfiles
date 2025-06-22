@@ -98,6 +98,7 @@
           extraModules = [
             disko.nixosModules.disko
             ./hosts/msi-laptop/disko.nix
+            sops-nix.nixosModules.sops
             {
               home-manager.sharedModules = [
                 plasma-manager.homeManagerModules.plasma-manager
