@@ -75,7 +75,7 @@
     dnsutils
     obsidian
     firefox
-    google-chrom
+    google-chrome
     nixpkgs-fmt
     obs-studio
     neofetch
