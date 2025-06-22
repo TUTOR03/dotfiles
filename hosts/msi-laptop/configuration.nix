@@ -8,8 +8,7 @@
 
   powerManagement.enable = true;
   services.logind.lidSwitch = "suspend";
-
-  networking.wireless.enable = true;
+  networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
   services = {
     libinput.enable = true;

@@ -1,4 +1,4 @@
-{ config, lib, hostname, username, pkgs, pkgs-unstable, ... }:
+{ config, lib, hostname, username, useremail, pkgs, pkgs-unstable, ... }:
 
 {
   imports = [
@@ -26,8 +26,9 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    shell = pkgs.bash;
     extraSpecialArgs = {
-      inherit hostname username pkgs-unstable;
+      inherit hostname username useremail pkgs-unstable;
     };
     users.${ username} = {
       imports = [

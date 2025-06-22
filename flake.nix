@@ -42,7 +42,7 @@
       ];
 
       mkHost =
-        { system, hostname, username, extraModules ? [ ] }:
+        { system, hostname, username, useremail, extraModules ? [ ] }:
         let
           pkgs-unstable = import nixpkgs-unstable {
             inherit system;
@@ -53,7 +53,7 @@
         nixpkgs.lib.nixosSystem {
           inherit system;
 
-          specialArgs = { inherit pkgs-unstable hostname username; };
+          specialArgs = { inherit pkgs-unstable hostname username useremail; };
           modules = [
             {
               nixpkgs = {
@@ -73,6 +73,7 @@
           system = "x86_64-linux";
           hostname = "astukalov-thinkpad";
           username = "astukalov";
+          useremail = "astukalov@vk.team";
           extraModules = [
             {
               nixpkgs.overlays = [
@@ -95,6 +96,7 @@
           system = "x86_64-linux";
           hostname = "msi-laptop";
           username = "sdev";
+          useremail = "stukalov.dev@gmail.com";
           extraModules = [
             disko.nixosModules.disko
             ./hosts/msi-laptop/disko.nix
