@@ -26,11 +26,10 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    shell = pkgs.bash;
     extraSpecialArgs = {
       inherit hostname username useremail pkgs-unstable;
     };
-    users.${ username} = {
+    users.${username} = {
       imports = [
         ./hosts/${ hostname}/home.nix
         ./home-modules
