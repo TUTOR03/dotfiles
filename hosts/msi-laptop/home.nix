@@ -8,11 +8,6 @@
   programs.bash = {
     enable = true;
     enableCompletion = true;
-  };
-
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
     initExtra = ''
       [[ -r "${pkgs.bash-completion}/share/bash-completion/bash_completion" ]] && source "${pkgs.bash-completion}/share/bash-completion/bash_completion"
 
