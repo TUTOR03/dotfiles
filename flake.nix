@@ -59,11 +59,11 @@
             {
               nixpkgs = {
                 inherit system;
-                inherit overlays ++ [
+                inherit (overlays ++ [
                   (final: prev: {
                     unstable = pkgs-unstable;
                   })
-                ];
+                ]);
 
                 config.allowUnfree = true;
               };

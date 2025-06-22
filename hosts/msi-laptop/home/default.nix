@@ -3,8 +3,8 @@
 {
   home.stateVersion = "25.05";
   
-  home.username = username;
-  home.homeDirectory = "/home/${username}";
+  home.username = userName;
+  home.homeDirectory = "/home/${userName}";
 
   programs.bash = {
     enable = true;

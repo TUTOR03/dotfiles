@@ -2,16 +2,16 @@
 
 {
   imports = [
-    ./hosts/${hostname}/configuration.nix
+    ./hosts/${hostName}/configuration.nix
     ./host-modules
   ];
 
   system.stateVersion = "25.05";
 
-  networking.hostName = hostname;
+  networking.hostName = hostName;
 
   time.timeZone = "Europe/Moscow";
-  
+
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "ru_RU.UTF-8";
@@ -30,7 +30,7 @@
     variant = "";
   };
 
-  users.users.${username} = {
+  users.users.${userName} = {
     isNormalUser = true;
     extraGroups = [
       "wheel"
@@ -44,9 +44,9 @@
     extraSpecialArgs = {
       inherit hostName userName userEmail;
     };
-    users.${username} = {
+    users.${userName} = {
       imports = [
-        ./hosts/${hostname}/home
+        ./hosts/${hostName}/home
         ./home-modules
       ];
     };
