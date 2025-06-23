@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   options = {
@@ -8,9 +8,9 @@
   config = lib.mkIf config.vscode.enable {
     programs.vscode = {
       enable = true;
-      package = pkgs-unstable.vscode;
+      package = pkgs.unstable.vscode;
 
-      profiles.default.extensions = with pkgs-unstable.vscode-marketplace; [
+      profiles.default.extensions = with pkgs.unstable.vscode-marketplace; [
         # Rust
         rust-lang.rust-analyzer
 
