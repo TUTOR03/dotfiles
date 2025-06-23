@@ -1,9 +1,9 @@
-{ ... }:
+{ lib, ... }:
 
 {
   networking = {
     networkmanager.enable = true;
-    useDHCP = true;
-    interfaces.wlo1.useDHCP = true;
+    useDHCP = lib.mkDefault true;
+    interfaces.wlo1.useDHCP = lib.mkDefault true;
   };
 }
