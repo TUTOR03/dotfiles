@@ -48,4 +48,6 @@
   programs.ssh = {
     enable = true;
   };
+
+  vscode.enable = true;
 }
