@@ -12,8 +12,8 @@
       videoDrivers = [ "nvidia" "intel" ];
     };
 
+    desktopManager.plasma6.enable = true;
     displayManager = {
-      plasma6.enable = true;
       sddm = {
         enable = true;
         wayland = {

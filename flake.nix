@@ -100,9 +100,9 @@
 
         msi-laptop = mkHost {
           system = "x86_64-linux";
-          hostname = "msi-laptop";
-          username = "sdev";
-          useremail = "stukalov.dev@gmail.com";
+          hostName = "msi-laptop";
+          userName = "sdev";
+          userEmail = "stukalov.dev@gmail.com";
           extraModules = [
             disko.nixosModules.disko
             ./hosts/msi-laptop/disko.nix
