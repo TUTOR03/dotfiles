@@ -1,6 +1,6 @@
 keys:
   - &astukalov-thinkpad age1fc7enet4cm9alx5tdxr3ec90fpt3layxvrct4kt0jluzgm8mh9fqdxc5ls
-  - &msi-laptop age111111
+  - &msi-laptop age1xnpmkazfqytegvunnuzyds6llz2x8hjuj08u5t506hhgu2tj09vss7lj98
 
 creation_rules:
   - path_regex: secrets/astukalov-thinkpad/[^/]+\.(yaml|json|env|ini)$
@@ -8,7 +8,7 @@ creation_rules:
       - age:
           - *astukalov-thinkpad
 
-  - path_regex: secrets/msi-laptop/[^/]+\.(yaml|json|env|ini)$
+  - path_regex: secrets/msi-laptop.yaml
     key_groups:
       - age:
           - *msi-laptop

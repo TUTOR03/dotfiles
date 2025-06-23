@@ -59,11 +59,11 @@
             {
               nixpkgs = {
                 inherit system;
-                inherit (overlays ++ [
+                overlays = overlays ++ [
                   (final: prev: {
                     unstable = pkgs-unstable;
                   })
-                ]);
+                ];
 
                 config.allowUnfree = true;
               };
@@ -106,9 +106,9 @@
           extraModules = [
             disko.nixosModules.disko
             ./hosts/msi-laptop/disko.nix
-            sops-nix.nixosModules.sops
             {
               home-manager.sharedModules = [
+                sops-nix.homeManagerModules.sops
                 plasma-manager.homeManagerModules.plasma-manager
               ];
             }

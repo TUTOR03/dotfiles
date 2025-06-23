@@ -1,8 +1,12 @@
-{ config, lib, hostName, userName, userEmail, pkgs , ... }:
+{ config, lib, hostName, userName, userEmail, pkgs, ... }:
 
 {
+  imports = [
+    ./sops.nix
+  ];
+
   home.stateVersion = "25.05";
-  
+
   home.username = userName;
   home.homeDirectory = "/home/${userName}";
 
@@ -37,6 +41,7 @@
     git
     git-lfs
     git-extras
+    nixpkgs-fmt
   ];
 
   programs.git = {
@@ -47,6 +52,11 @@
 
   programs.ssh = {
     enable = true;
+    matchBlocks = {
+      "github.com" = {
+        identityFile = config.sops.secrets."ssh/github/private".path;
+      };
+    };
   };
 
   vscode.enable = true;
