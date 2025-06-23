@@ -8,9 +8,9 @@
   config = lib.mkIf config.vscode.enable {
     programs.vscode = {
       enable = true;
-      package = pkgs.unstable.vscode;
+      package = pkgs.vscode;
 
-      profiles.default.extensions = with pkgs.unstable.vscode-marketplace; [
+      profiles.default.extensions = with pkgs.vscode-marketplace; [
         # Rust
         rust-lang.rust-analyzer
 
@@ -49,7 +49,7 @@
         esbenp.prettier-vscode
         ms-azuretools.vscode-docker
         ms-vscode.makefile-tools
-        vadimcn.vscode-lldb
+        # vadimcn.vscode-lldb
         eamodio.gitlens
         mhutchie.git-graph
         adpyke.codesnap
