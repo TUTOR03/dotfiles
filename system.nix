@@ -30,6 +30,10 @@
     variant = "";
   };
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+
   users.users.${userName} = {
     isNormalUser = true;
     extraGroups = [
