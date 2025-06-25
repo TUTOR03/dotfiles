@@ -7,11 +7,13 @@
       enable32Bit = true;
     };
 
+    opengl.enable = true;
+
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
     nvidia = {
       open = false;
-      package = config.boot.kernelPackages.nvidiaPackages.latest;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
       modesetting.enable = true;
       powerManagement.enable = true;
       powerManagement.finegrained = true;
