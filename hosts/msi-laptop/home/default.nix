@@ -26,7 +26,7 @@
       theme = "breeze-dark";
       colorScheme = "BreezeDark";
       lookAndFeel = "org.kde.breezedark.desktop";
-      iconTheme = "BreezeDark";
+      iconTheme = "breeze-dark";
       cursor = {
         size = 24;
         theme = "Breeze";
@@ -47,11 +47,11 @@
         alignment = "center";
         height = 44;
         floating = false;
-        hiding = "windowsgobelow";
+        hiding = "normalpanel";
         widgets = [
           { name = "org.kde.plasma.kickoff"; }
           { name = "org.kde.plasma.pager"; }
-          { name = "org.kde.plasma.taskmanager"; }
+          { name = "org.kde.plasma.icontasks"; }
           { name = "org.kde.plasma.systemtray"; }
           { name = "org.kde.plasma.digitalclock"; }
         ];
@@ -60,8 +60,8 @@
 
     shortcuts = {
       "kwin" = {
-        "Switch to Next Desktop" = "Meta+PgUp";
-        "Switch to Previous Desktop" = "Meta+PgDown";
+        "Switch One Desktop to the Right" = "Meta+PgUp";
+        "Switch One Desktop to the Left" = "Meta+PgDown";
         "Window to Next Desktop" = "Meta+Shift+PgUp";
         "Window to Previous Desktop" = "Meta+Shift+PgDown";
         "Switch to Desktop 1" = "Meta+1";
@@ -79,6 +79,8 @@
         names = [ "1" "2" "3" "4" "5" ];
       };
     };
+
+    session.sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
   };
 
   home.packages = with pkgs; [
