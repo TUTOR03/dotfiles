@@ -14,16 +14,15 @@
     initrd = {
       availableKernelModules = [ 
         "xhci_pci"
-        "thunderbolt"
+        "ahci"
         "nvme"
         "usb_storage"
+        "usbhid"
         "sd_mod"
-        "rtsx_pci_sdmmc"
       ];
       kernelModules = [ "dm-snapshot" ];
     };
 
-    kernelModules = [ "kvm-intel" ];
-    extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+    kernelModules = [ "kvm-amd" ];
   };
 }
