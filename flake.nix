@@ -75,28 +75,21 @@
     in
     {
       nixosConfigurations = {
-        # astukalov-thinkpad = mkHost {
-        #   system = "x86_64-linux";
-        #   hostname = "astukalov-thinkpad";
-        #   username = "astukalov";
-        #   useremail = "astukalov@vk.team";
-        #   extraModules = [
-        #     {
-        #       nixpkgs.overlays = [
-        #         (final: prev: {
-        #           openvpn = prev.openvpn.override {
-        #             pkcs11Support = true;
-        #             pkcs11helper = prev.pkcs11helper;
-        #           };
-        #         })
-        #       ];
-
-        #       home-manager.sharedModules = [
-        #         sops-nix.homeManagerModules.sops
-        #       ];
-        #     }
-        #   ];
-        # };
+        sdev-pc = mkHost {
+          system = "x86_64-linux";
+          hostName = "sdev-pc";
+          userName = "sdev";
+          userEmail = "stukalov.dev@gmail.com";
+          extraModules = [
+            disko.nixosModules.disko
+            ./hosts/sdev-pc/disko.nix
+            {
+              home-manager.sharedModules = [
+                plasma-manager.homeManagerModules.plasma-manager
+              ];
+            }
+          ];
+        };
 
         msi-laptop = mkHost {
           system = "x86_64-linux";
