@@ -9,7 +9,7 @@
 
     # opengl.enable = true;
 
-    # cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
     # nvidia = {
     #   open = false;
