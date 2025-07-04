@@ -92,6 +92,7 @@
     nixpkgs-fmt
     htop
     sops
+    obsidian
   ];
 
   programs.git = {
