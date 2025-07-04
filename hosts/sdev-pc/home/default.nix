@@ -1,9 +1,9 @@
 { config, lib, hostName, userName, userEmail, pkgs, ... }:
 
 {
-  # imports = [
-  #   ./sops.nix
-  # ];
+  imports = [
+    ./sops.nix
+  ];
 
   home.stateVersion = "25.05";
 
@@ -85,26 +85,30 @@
 
   home.packages = with pkgs; [
     firefox
+    google-chrome
     git
     git-lfs
     git-extras
     nixpkgs-fmt
+    htop
+    sops
   ];
 
   programs.git = {
     enable = true;
     lfs.enable = true;
-    inherit userName userEmail;
+    userName = "TUTOR03";
+    inherit userEmail;
   };
 
   programs.ssh = {
     enable = true;
-    # matchBlocks = {
-    #   "github.com" = {
-    #     identityFile = config.sops.secrets."ssh/github/private".path;
-    #   };
-    # };
+    matchBlocks = {
+      "github.com" = {
+        identityFile = config.sops.secrets."ssh/github/private".path;
+      };
+    };
   };
 
-  # vscode.enable = true;
+  vscode.enable = true;
 }

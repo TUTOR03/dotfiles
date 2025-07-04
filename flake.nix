@@ -85,6 +85,7 @@
             ./hosts/sdev-pc/disko.nix
             {
               home-manager.sharedModules = [
+                sops-nix.homeManagerModules.sops
                 plasma-manager.homeManagerModules.plasma-manager
               ];
             }

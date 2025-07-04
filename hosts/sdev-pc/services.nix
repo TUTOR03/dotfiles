@@ -2,14 +2,12 @@
 
 {
   services = {
-    # logind.lidSwitch = "suspend";
-    # libinput.enable = true;
     power-profiles-daemon.enable = true;
     printing.enable = true;
 
     xserver = {
       enable = true;
-      videoDrivers = [ "nvidia" "amd" ];
+      videoDrivers = [ "nvidia" "amdgpu" ];
     };
 
     desktopManager.plasma6.enable = true;
