@@ -12,27 +12,30 @@
 
   time.timeZone = "Europe/Moscow";
 
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "ru_RU.UTF-8";
-    LC_IDENTIFICATION = "ru_RU.UTF-8";
-    LC_MEASUREMENT = "ru_RU.UTF-8";
-    LC_MONETARY = "ru_RU.UTF-8";
-    LC_NAME = "ru_RU.UTF-8";
-    LC_NUMERIC = "ru_RU.UTF-8";
-    LC_PAPER = "ru_RU.UTF-8";
-    LC_TELEPHONE = "ru_RU.UTF-8";
-    LC_TIME = "ru_RU.UTF-8";
-  };
+  fonts.fontconfig.enable = true;
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    ipaexfont
+    jigmo
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+  ];
 
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "ru_RU.UTF-8";
+      LC_IDENTIFICATION = "ru_RU.UTF-8";
+      LC_MEASUREMENT = "ru_RU.UTF-8";
+      LC_MONETARY = "ru_RU.UTF-8";
+      LC_NAME = "ru_RU.UTF-8";
+      LC_NUMERIC = "ru_RU.UTF-8";
+      LC_PAPER = "ru_RU.UTF-8";
+      LC_TELEPHONE = "ru_RU.UTF-8";
+      LC_TIME = "ru_RU.UTF-8";
+    };
+    supportedLocales = [ "all" ];
   };
-
-  # fonts.packages = with pkgs; [
-  #   nerd-fonts.jetbrains-mono
-  # ];
 
   users.users.${userName} = {
     isNormalUser = true;
@@ -48,6 +51,7 @@
     extraSpecialArgs = {
       inherit hostName userName userEmail;
     };
+    backupFileExtension = "hm-backup";
     users.${userName} = {
       imports = [
         ./hosts/${hostName}/home

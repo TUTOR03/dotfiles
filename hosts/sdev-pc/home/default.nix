@@ -59,6 +59,7 @@
     ];
 
     shortcuts = {
+      "KDE Keyboard Layout Switcher"."Switch to Next Keyboard Layout" = "Alt+Shift";
       "kwin" = {
         "Switch One Desktop to the Right" = "Meta+PgUp";
         "Switch One Desktop to the Left" = "Meta+PgDown";
@@ -78,7 +79,24 @@
         rows = 1;
         names = [ "1" "2" "3" "4" "5" ];
       };
+      edgeBarrier = 0;
+      effects.shakeCursor.enable = false;
     };
+
+    input.keyboard = {
+      switchingPolicy = "global";
+      layouts = [
+        {
+          layout = "us";
+          displayName = "EN";
+        }
+        {
+          layout = "ru";
+          displayName = "RU";
+        }
+      ];
+    };
+
 
     session.sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
   };
@@ -93,6 +111,7 @@
     htop
     sops
     obsidian
+    discord
   ];
 
   programs.git = {
