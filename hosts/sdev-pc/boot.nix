@@ -1,7 +1,7 @@
 { config, pkgs, modulesPath, ... }:
 
 {
-  imports =[(modulesPath + "/installer/scan/not-detected.nix")];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot = {
     loader = {
@@ -12,7 +12,7 @@
     kernelPackages = pkgs.linuxPackages_latest;
 
     initrd = {
-      availableKernelModules = [ 
+      availableKernelModules = [
         "xhci_pci"
         "ahci"
         "nvme"

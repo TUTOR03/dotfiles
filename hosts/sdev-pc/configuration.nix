@@ -8,9 +8,24 @@
     ./networking.nix
   ];
 
+  environment.systemPackages = with pkgs; [
+    gamemode
+    mangohud
+    protonup-qt
+  ];
+
   programs.nekoray = {
     enable = true;
     tunMode.enable = true;
+  };
+
+  programs.coolercontrol.enable = true;
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
   };
 
   programs.amnezia-vpn.enable = true;
