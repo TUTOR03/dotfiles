@@ -37,8 +37,11 @@
     supportedLocales = [ "all" ];
   };
 
+  programs.zsh.enable = true;
+
   users.users.${userName} = {
     isNormalUser = true;
+    shell = pkgs.zsh;
     extraGroups = [
       "wheel"
       "networkmanager"

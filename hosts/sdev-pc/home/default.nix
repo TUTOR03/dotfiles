@@ -10,14 +10,33 @@
   home.username = userName;
   home.homeDirectory = "/home/${userName}";
 
-  programs.bash = {
+  home.packages = with pkgs; [
+    firefox
+    google-chrome
+    git
+    git-lfs
+    git-extras
+    nixpkgs-fmt
+    htop
+    sops
+    obsidian
+    discord
+  ];
+
+  programs.zsh = {
     enable = true;
     enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
     shellAliases = {
+      ll = "ls -l";
       cls = "clear";
       rebuild = "sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/dotfiles#${hostName}";
     };
   };
+
+  programs.starship.enable = true;
 
   programs.plasma = {
     enable = true;
@@ -121,18 +140,13 @@
     session.sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
   };
 
-  home.packages = with pkgs; [
-    firefox
-    google-chrome
-    git
-    git-lfs
-    git-extras
-    nixpkgs-fmt
-    htop
-    sops
-    obsidian
-    discord
-  ];
+  programs.ghostty = {
+    enable = true;
+    settings = {
+      theme = "GruvboxDark";
+      shell-integration = "zsh";
+    };
+  };
 
   programs.git = {
     enable = true;
