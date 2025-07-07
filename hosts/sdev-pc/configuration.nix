@@ -28,7 +28,6 @@
     localNetworkGameTransfers.openFirewall = true;
   };
 
-  programs.amnezia-vpn.enable = true;
   powerManagement.enable = true;
 
   i18n.inputMethod = {

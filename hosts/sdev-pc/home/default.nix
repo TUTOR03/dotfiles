@@ -36,9 +36,25 @@
     kscreenlocker = {
       autoLock = true;
       lockOnResume = true;
+      lockOnStartup = true;
       passwordRequired = true;
       passwordRequiredDelay = 5;
-      timeout = 300;
+      timeout = 30;
+    };
+
+    powerdevil = {
+      AC = {
+        autoSuspend.action = "nothing";
+        dimDisplay.enable = false;
+        powerButtonAction = "sleep";
+        powerProfile = "performance";
+        turnOffDisplay = {
+          idleTimeout = 1800;
+          idleTimeoutWhenLocked = 900;
+        };
+        whenSleepingEnter = "standby";
+      };
+      general.pausePlayersOnSuspend = true;
     };
 
     panels = [
@@ -80,7 +96,11 @@
         names = [ "1" "2" "3" "4" "5" ];
       };
       edgeBarrier = 0;
-      effects.shakeCursor.enable = false;
+      effects = {
+        shakeCursor.enable = false;
+        blur.enable = false;
+        desktopSwitching.animation = "slide";
+      };
     };
 
     input.keyboard = {
@@ -126,6 +146,12 @@
     matchBlocks = {
       "github.com" = {
         identityFile = config.sops.secrets."ssh/github/private".path;
+      };
+      "fi-vpn" = {
+        user = "vpn";
+        hostname = "43.245.225.116";
+        port = 22;
+        identityFile = config.sops.secrets."ssh/fi-vpn/private".path;
       };
     };
   };

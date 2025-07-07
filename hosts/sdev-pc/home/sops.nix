@@ -12,6 +12,14 @@
         path = "${config.home.homeDirectory}/.ssh/id_ed25519_github.pub";
         mode = "0644";
       };
+      "ssh/fi-vpn/private" = {
+        path = "${config.home.homeDirectory}/.ssh/id_ed25519_fi_vpn";
+        mode = "0600";
+      };
+      "ssh/fi-vpn/public" = {
+        path = "${config.home.homeDirectory}/.ssh/id_ed25519_fi_vpn.pub";
+        mode = "0644";
+      };
     };
   };
 }
