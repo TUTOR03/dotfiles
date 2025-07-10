@@ -21,6 +21,9 @@
     sops
     obsidian
     discord
+    audacity
+    vlc
+    obs-studio
   ];
 
   programs.zsh = {
@@ -171,4 +174,5 @@
   };
 
   vscode.enable = true;
+  # zed.enable = true;
 }
