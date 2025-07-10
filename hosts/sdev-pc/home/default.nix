@@ -175,4 +175,5 @@
 
   vscode.enable = true;
   zed.enable = true;
+  rust.enable = true;
 }
