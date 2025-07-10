@@ -174,5 +174,5 @@
   };
 
   vscode.enable = true;
-  # zed.enable = true;
+  zed.enable = true;
 }
