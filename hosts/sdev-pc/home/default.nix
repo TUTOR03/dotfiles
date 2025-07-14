@@ -24,6 +24,8 @@
     audacity
     vlc
     obs-studio
+    nodejs_22
+    pnpm
   ];
 
   programs.zsh = {
@@ -172,6 +174,8 @@
       };
     };
   };
+
+
 
   vscode.enable = true;
   zed.enable = true;
