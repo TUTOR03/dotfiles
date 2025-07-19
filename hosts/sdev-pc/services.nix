@@ -1,4 +1,4 @@
-{ ... }:
+{ userName, ... }:
 
 {
   services = {
@@ -7,6 +7,9 @@
 
     xserver = {
       enable = true;
+      xkb = {
+        layout = "us,ru";
+      };
       videoDrivers = [ "nvidia" "amdgpu" ];
     };
 
@@ -17,6 +20,12 @@
         wayland = {
           enable = true;
           compositor = "kwin";
+        };
+        settings = {
+          Autologin = {
+            Session = "plasma.desktop";
+            User = userName;
+          };
         };
       };
       defaultSession = "plasma";

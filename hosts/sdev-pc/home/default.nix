@@ -28,12 +28,9 @@
     pnpm
   ];
 
-  programs.zsh = {
+  programs.bash = {
     enable = true;
     enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-
     shellAliases = {
       ll = "ls -l";
       cls = "clear";
@@ -141,7 +138,6 @@
       ];
     };
 
-
     session.sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
   };
 
@@ -149,7 +145,6 @@
     enable = true;
     settings = {
       theme = "GruvboxDark";
-      shell-integration = "zsh";
     };
   };
 
@@ -174,8 +169,6 @@
       };
     };
   };
-
-
 
   vscode.enable = true;
   zed.enable = true;
