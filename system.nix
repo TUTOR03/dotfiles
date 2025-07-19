@@ -42,8 +42,11 @@
     extraGroups = [
       "wheel"
       "networkmanager"
+      "docker"
     ];
   };
+
+  virtualisation.docker.enable = true;
 
   home-manager = {
     useGlobalPkgs = true;

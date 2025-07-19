@@ -30,4 +30,5 @@
   };
 
   powerManagement.enable = true;
+  virtualisation.docker.storageDriver = "btrfs";
 }

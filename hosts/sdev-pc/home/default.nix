@@ -55,12 +55,11 @@
     };
 
     kscreenlocker = {
-      autoLock = true;
+      autoLock = false;
       lockOnResume = true;
       lockOnStartup = true;
       passwordRequired = true;
       passwordRequiredDelay = 5;
-      timeout = 30;
     };
 
     powerdevil = {
