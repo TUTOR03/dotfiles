@@ -19,6 +19,7 @@
     enable = true;
     tunMode.enable = true;
   };
+  programs.amnezia-vpn.enable = true;
 
   programs.coolercontrol.enable = true;
 
