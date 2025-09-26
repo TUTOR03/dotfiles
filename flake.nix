@@ -10,6 +10,10 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +21,10 @@
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    arkenfox-nixos = {
+      url = "github:dwarfmaster/arkenfox-nixos";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     rust-overlay.url = "github:oxalica/rust-overlay";
@@ -29,14 +37,17 @@
     , nixos-hardware
     , disko
     , home-manager
+    , nur
     , plasma-manager
     , sops-nix
+    , arkenfox-nixos
     , rust-overlay
     , vscode-extensions
     , ...
     }:
     let
       overlays = [
+        nur.overlays.default
         rust-overlay.overlays.default
         vscode-extensions.overlays.default
       ];
@@ -86,7 +97,8 @@
             {
               home-manager.sharedModules = [
                 sops-nix.homeManagerModules.sops
-                plasma-manager.homeManagerModules.plasma-manager
+                arkenfox-nixos.hmModules.arkenfox
+                plasma-manager.homeModules.plasma-manager
               ];
             }
           ];
@@ -103,7 +115,7 @@
             {
               home-manager.sharedModules = [
                 sops-nix.homeManagerModules.sops
-                plasma-manager.homeManagerModules.plasma-manager
+                plasma-manager.homeModules.plasma-manager
               ];
             }
           ];

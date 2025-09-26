@@ -11,8 +11,8 @@
   home.homeDirectory = "/home/${userName}";
 
   home.packages = with pkgs; [
-    firefox
     google-chrome
+    chromium
     git
     git-lfs
     git-extras
@@ -172,4 +172,5 @@
   vscode.enable = true;
   zed.enable = true;
   rust.enable = true;
+  arkenfox.enable = true;
 }

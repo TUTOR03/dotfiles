@@ -54,7 +54,7 @@
     extraSpecialArgs = {
       inherit hostName userName userEmail;
     };
-    backupFileExtension = "hm-backup";
+    backupFileExtension = "backup";
     users.${userName} = {
       imports = [
         ./hosts/${hostName}/home

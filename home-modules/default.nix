@@ -10,5 +10,6 @@
     ./git.nix
     ./ssh.nix
     ./vlc.nix
+    ./arkenfox.nix
   ];
 }
