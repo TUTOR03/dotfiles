@@ -12,17 +12,16 @@
 
     initrd = {
       availableKernelModules = [
-        "ahci"
-        "nvme"
         "xhci_pci"
+        "nvme"
+        "thunderbolt"
         "usb_storage"
-        "usbhid"
         "sd_mod"
+        "rtsx_pci_sdmmc"
       ];
-      kernelModules = [ "dm-snapshot" "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+      kernelModules = [ ];
     };
 
     kernelModules = [ "kvm-intel" ];
-    kernelParams = [ "nvidia-drm.modeset=1" ];
   };
 }
