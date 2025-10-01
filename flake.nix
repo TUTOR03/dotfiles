@@ -58,7 +58,7 @@
         vscode-extensions.overlays.default
       ];
 
-      mkHostWithUser = { system, hostName, userName, userEmail, extraHostModules ? [ ], extraHomeModules ? [ ] }:
+      mkHostWithUser = { system, hostName, userName, userEmail, stateVersion, extraHostModules ? [ ], extraHomeModules ? [ ] }:
         let
           pkgs-unstable = import nixpkgs-unstable {
             inherit system;
@@ -81,11 +81,14 @@
           host = nixpkgs.lib.nixosSystem {
             inherit system;
             modules = [
+              {
+                nixpkgs.pkgs = pkgs;
+              }
               ./base/host
               ./hosts/${hostName}
             ] ++ extraHostModules;
 
-            specialArgs = { inherit pkgs hostName userName userEmail; };
+            specialArgs = { inherit hostName userName userEmail stateVersion; };
           };
 
           home = home-manager.lib.homeManagerConfiguration {
@@ -98,7 +101,7 @@
               ./hosts/${hostName}/home
             ] ++ extraHomeModules;
 
-            specialArgs = { inherit hostName userName userEmail; };
+            specialArgs = { inherit hostName userName userEmail stateVersion; };
           };
         };
 
@@ -108,6 +111,7 @@
           hostName = "sdev-pc";
           userName = "sdev";
           userEmail = "stukalov.dev@gmail.com";
+          stateVersion = "25.05";
           extraHostModules = [
             disko.nixosModules.disko
             ./hosts/sdev-pc/disko.nix
@@ -118,6 +122,7 @@
           hostName = "msi-laptop";
           userName = "sdev";
           userEmail = "stukalov.dev@gmail.com";
+          stateVersion = "25.05";
           extraHostModules = [
             disko.nixosModules.disko
             ./hosts/msi-laptop/disko.nix
