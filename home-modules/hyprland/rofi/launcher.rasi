@@ -1,5 +1,0 @@
-@import "base.rasi"
-
-listview { lines: 6; spacing: 8px; }
-
-element-icon { size: 32px; cursor: pointer; }

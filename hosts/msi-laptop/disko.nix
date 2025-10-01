@@ -16,73 +16,26 @@
               mountOptions = [ "umask=0077" ];
             };
           };
+          windows = {
+            size = "150G";
+            type = "0700";
+          };
 
-          luks = {
-            size = "100%";
+          nixos_root = {
+            size = "100%FREE";
             content = {
-              type = "luks";
-              name = "cryptroot";
-              settings = {
-                allowDiscards = true;
-              };
-              content = {
-                type = "lvm_pv";
-                vg = "pool";
-              };
+              type = "filesystem";
+              format = "ext4";
+              mountpoint = "/";
             };
           };
-        };
-      };
-    };
 
-    lvm_vg.pool = {
-      type = "lvm_vg";
-      lvs = {
-        root = {
-          size = "100%";
-          content = {
-            type = "btrfs";
-            extraArgs = [ "-f" ];
-            subvolumes = {
-              "/root" = {
-                mountpoint = "/";
-                mountOptions = [
-                  "compress=zstd"
-                  "noatime"
-                  "ssd"
-                  "space_cache=v2"
-                  "subvol=@"
-                ];
-              };
-              "@home" = {
-                mountpoint = "/home";
-                mountOptions = [
-                  "compress=zstd"
-                  "noatime"
-                  "ssd"
-                  "space_cache=v2"
-                  "subvol=@home"
-                ];
-              };
-              "@nix" = {
-                mountpoint = "/nix";
-                mountOptions = [
-                  "compress=zstd"
-                  "noatime"
-                  "ssd"
-                  "space_cache=v2"
-                  "subvol=@nix"
-                ];
-              };
+          swap = {
+            size = "16G";
+            content = {
+              type = "swap";
+              resumeDevice = true;
             };
-          };
-        };
-
-        swap = {
-          size = "16G";
-          content = {
-            type = "swap";
-            resumeDevice = true;
           };
         };
       };

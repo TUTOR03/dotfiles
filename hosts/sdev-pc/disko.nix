@@ -16,66 +16,26 @@
               mountOptions = [ "umask=0077" ];
             };
           };
+          windows = {
+            size = "300G";
+            type = "0700";
+          };
 
-          root = {
-            size = "100%";
+          nixos_root = {
+            size = "100%FREE";
             content = {
-              type = "lvm_pv";
-              vg = "pool";
+              type = "filesystem";
+              format = "ext4";
+              mountpoint = "/";
             };
           };
-        };
-      };
-    };
 
-    lvm_vg.pool = {
-      type = "lvm_vg";
-      lvs = {
-        root = {
-          size = "100%";
-          content = {
-            type = "btrfs";
-            extraArgs = [ "-f" ];
-            subvolumes = {
-              "/root" = {
-                mountpoint = "/";
-                mountOptions = [
-                  "compress=zstd"
-                  "noatime"
-                  "ssd"
-                  "space_cache=v2"
-                  "subvol=@"
-                ];
-              };
-              "@home" = {
-                mountpoint = "/home";
-                mountOptions = [
-                  "compress=zstd"
-                  "noatime"
-                  "ssd"
-                  "space_cache=v2"
-                  "subvol=@home"
-                ];
-              };
-              "@nix" = {
-                mountpoint = "/nix";
-                mountOptions = [
-                  "compress=zstd"
-                  "noatime"
-                  "ssd"
-                  "space_cache=v2"
-                  "subvol=@nix"
-                ];
-              };
+          swap = {
+            size = "32G";
+            content = {
+              type = "swap";
+              resumeDevice = true;
             };
-          };
-        };
-
-        swap = {
-          size = "32G";
-          content = {
-            type = "swap";
-            resumeDevice = true;
           };
         };
       };

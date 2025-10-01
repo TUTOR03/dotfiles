@@ -1,17 +1,34 @@
 {
-  description = "NixOS configuration";
+  description = "Modular NixOS config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
-    disko.url = "github:nix-community/disko";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     nur = {
       url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     plasma-manager = {
@@ -19,32 +36,21 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    arkenfox-nixos = {
-      url = "github:dwarfmaster/arkenfox-nixos";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    rust-overlay.url = "github:oxalica/rust-overlay";
-    vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 
   outputs =
     { nixpkgs
     , nixpkgs-unstable
-    , nixos-hardware
-    , disko
     , home-manager
     , nur
-    , plasma-manager
-    , sops-nix
-    , arkenfox-nixos
     , rust-overlay
     , vscode-extensions
+    , disko
+    , sops-nix
+    , plasma-manager
     , ...
     }:
+
     let
       overlays = [
         nur.overlays.default
@@ -52,74 +58,82 @@
         vscode-extensions.overlays.default
       ];
 
-      mkHost =
-        { system, hostName, userName, userEmail, extraModules ? [ ] }:
+      mkHostWithUser = { system, hostName, userName, userEmail, extraHostModules ? [ ], extraHomeModules ? [ ] }:
         let
           pkgs-unstable = import nixpkgs-unstable {
             inherit system;
-            inherit overlays;
+            config.allowUnfree = true;
+          };
 
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = overlays ++ [
+              (final: prev: {
+                unstable = pkgs-unstable;
+              })
+            ];
             config.allowUnfree = true;
           };
         in
-        nixpkgs.lib.nixosSystem {
-          inherit system;
+        {
+          inherit hostName userName;
 
-          specialArgs = { inherit hostName userName userEmail; };
-          modules = [
-            {
-              nixpkgs = {
-                inherit system;
-                overlays = overlays ++ [
-                  (final: prev: {
-                    unstable = pkgs-unstable;
-                  })
-                ];
+          host = nixpkgs.lib.nixosSystem {
+            inherit system;
+            modules = [
+              ./base/host
+              ./hosts/${hostName}
+            ] ++ extraHostModules;
 
-                config.allowUnfree = true;
-              };
-            }
-            ./system.nix
-            home-manager.nixosModules.home-manager
-          ] ++ extraModules;
+            specialArgs = { inherit pkgs hostName userName userEmail; };
+          };
+
+          home = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            username = userName;
+            homeDirectory = "/home/${userName}";
+
+            modules = [
+              ./base/home
+              ./hosts/${hostName}/home
+            ] ++ extraHomeModules;
+
+            specialArgs = { inherit hostName userName userEmail; };
+          };
         };
-    in
-    {
-      nixosConfigurations = {
-        sdev-pc = mkHost {
+
+      configs = [
+        {
           system = "x86_64-linux";
           hostName = "sdev-pc";
           userName = "sdev";
           userEmail = "stukalov.dev@gmail.com";
-          extraModules = [
+          extraHostModules = [
             disko.nixosModules.disko
             ./hosts/sdev-pc/disko.nix
-            {
-              home-manager.sharedModules = [
-                sops-nix.homeManagerModules.sops
-                arkenfox-nixos.hmModules.arkenfox
-                plasma-manager.homeModules.plasma-manager
-              ];
-            }
           ];
-        };
-
-        msi-laptop = mkHost {
+        }
+        {
           system = "x86_64-linux";
           hostName = "msi-laptop";
           userName = "sdev";
           userEmail = "stukalov.dev@gmail.com";
-          extraModules = [
+          extraHostModules = [
             disko.nixosModules.disko
             ./hosts/msi-laptop/disko.nix
-            {
-              home-manager.sharedModules = [
-                sops-nix.homeManagerModules.sops
-                plasma-manager.homeModules.plasma-manager
-              ];
-            }
           ];
-        };
-      };
+        }
+      ];
+
+      generatedConfigs = map mkHostWithUser configs;
+    in
+    {
+      nixosConfigurations = builtins.listToAttrs (
+        map (cfg: { name = cfg.hostName; value = cfg.host; }) generatedConfigs
+      );
+
+      homeConfigurations = builtins.listToAttrs (
+        map (cfg: { name = "${cfg.userName}@${cfg.hostName}"; value = cfg.home; }) generatedConfigs
+      );
     };
 }
