@@ -101,7 +101,7 @@
               ./hosts/${hostName}/home
             ] ++ extraHomeModules;
 
-            specialArgs = { inherit hostName userName userEmail stateVersion; };
+            extraSpecialArgs = { inherit hostName userName userEmail stateVersion; };
           };
         };
 
