@@ -93,8 +93,6 @@
 
           home = home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
-            username = userName;
-            homeDirectory = "/home/${userName}";
 
             modules = [
               ./base/home
