@@ -5,15 +5,20 @@
   };
 
   config = lib.mkIf config.desktops.kde.enable {
-    services.xserver = {
-      enable = true;
-      displayManager.sddm = {
-        enable = true;
-        wayland.enable = true;
+    services = {
+      xserver.enable = true;
+      desktopManager = {
+        plasma6.enable = true;
+        sddm = {
+          enable = true;
+          wayland.enable = true;
+        };
       };
-    };
 
-    services.desktopManager.plasma6.enable = true;
+      udisks2.enable = true;
+      devmon.enable = true;
+      gvfs.enable = true;
+    };
 
     environment.plasma6.excludePackages = lib.mkDefault
       (with pkgs.kdePackages; [
@@ -45,9 +50,5 @@
         kdePackages.xdg-desktop-portal-kde
       ];
     };
-
-    services.udisks2.enable = true;
-    services.devmon.enable = true;
-    services.gvfs.enable = true;
   };
 }
