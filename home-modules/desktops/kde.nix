@@ -3,24 +3,6 @@
   options = {
     desktops.kde = {
       enable = lib.mkEnableOption "Enables KDE Plasma user configuration";
-
-      theme = lib.mkOption {
-        type = lib.types.str;
-        default = "breeze-dark";
-        description = "KDE theme name";
-      };
-
-      iconTheme = lib.mkOption {
-        type = lib.types.str;
-        default = "breeze-dark";
-        description = "Icon theme name";
-      };
-
-      cursorTheme = lib.mkOption {
-        type = lib.types.str;
-        default = "breeze_cursors";
-        description = "Cursor theme name";
-      };
     };
   };
 
@@ -37,9 +19,11 @@
       shortcuts = lib.mkDefault { };
 
       workspace = {
-        lookAndFeel = lib.mkDefault config.desktops.kde.theme;
-        cursor.theme = lib.mkDefault config.desktops.kde.cursorTheme;
-        iconTheme = lib.mkDefault config.desktops.kde.iconTheme;
+        theme = lib.mkDefault "breeze-dark";
+        colorScheme = lib.mkDefault "BreezeDark";
+        lookAndFeel = lib.mkDefault "org.kde.breezedark.desktop";
+        iconTheme = lib.mkDefault "breeze-dark";
+        cursor.theme = lib.mkDefault "Breeze";
       };
 
       panels = lib.mkDefault [
@@ -96,7 +80,7 @@
         package = pkgs.kdePackages.breeze-gtk;
       };
       iconTheme = lib.mkDefault {
-        name = config.desktops.kde.iconTheme;
+        name = "breeze-dark";
         package = pkgs.kdePackages.breeze-icons;
       };
     };
