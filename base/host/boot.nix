@@ -1,11 +1,11 @@
 {
   boot.loader = {
     timeout = null;
+    plymouth.enable = true;
 
     systemd-boot = {
       enable = true;
       configurationLimit = 7;
-      consoleMode = "max";
     };
 
     efi.canTouchEfiVariables = true;

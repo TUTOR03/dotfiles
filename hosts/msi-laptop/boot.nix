@@ -29,6 +29,6 @@
     };
 
     kernelModules = [ "kvm-intel" ];
-    kernelParams = [ "nvidia-drm.modeset=1" ];
+    kernelParams = [ "quiet" "splash" "nvidia-drm.modeset=1" ];
   };
 }
