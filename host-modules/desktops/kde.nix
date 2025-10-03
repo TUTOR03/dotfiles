@@ -7,13 +7,11 @@
   config = lib.mkIf config.desktops.kde.enable {
     services = {
       xserver.enable = true;
-      desktopManager = {
-        plasma6.enable = true;
-        sddm = {
-          enable = true;
-          wayland.enable = true;
-        };
+      displayManager.sddm = {
+        enable = true;
+        wayland.enable = true;
       };
+      desktopManager.plasma6.enable = true;
 
       udisks2.enable = true;
       devmon.enable = true;
