@@ -85,6 +85,7 @@
                 nixpkgs.pkgs = pkgs;
               }
               ./base/host
+              ./host-modules
               ./hosts/${hostName}
             ] ++ extraHostModules;
 
@@ -96,6 +97,7 @@
 
             modules = [
               ./base/home
+              ./home-modules
               ./hosts/${hostName}/home
             ] ++ extraHomeModules;
 

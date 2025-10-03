@@ -5,12 +5,14 @@
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
     nvidia = {
-      open = false;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
       modesetting.enable = true;
-      powerManagement.enable = true;
+      powerManagement.enable = false;
+      open = false;
       nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+
       prime = {
+        sync.enable = true;
         amdgpuBusId = "PCI:16:0:0";
         nvidiaBusId = "PCI:1:0:0";
       };

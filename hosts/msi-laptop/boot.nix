@@ -19,9 +19,16 @@
         "sd_mod"
         "rtsx_pci_sdmmc"
       ];
-      kernelModules = [ ];
+
+      kernelModules = [
+        "nvidia"
+        "nvidia_modeset"
+        "nvidia_uvm"
+        "nvidia_drm"
+      ];
     };
 
     kernelModules = [ "kvm-intel" ];
+    kernelParams = [ "nvidia-drm.modeset=1" ];
   };
 }
