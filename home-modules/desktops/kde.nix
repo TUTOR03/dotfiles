@@ -90,7 +90,7 @@
     };
 
     gtk = {
-      enable = lib.mkDefault true;
+      enable = true;
       theme = lib.mkDefault {
         name = "Breeze-Dark";
         package = pkgs.kdePackages.breeze-gtk;
@@ -102,7 +102,7 @@
     };
 
     qt = {
-      enable = lib.mkDefault true;
+      enable = true;
       platformTheme.name = lib.mkDefault "kde";
       style = lib.mkDefault {
         name = "breeze";

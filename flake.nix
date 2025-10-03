@@ -126,6 +126,8 @@
           extraHostModules = [
             disko.nixosModules.disko
             ./hosts/msi-laptop/disko.nix
+          ];
+          extraHomeModules = [
             plasma-manager.homeModules.plasma-manager
           ];
         }
