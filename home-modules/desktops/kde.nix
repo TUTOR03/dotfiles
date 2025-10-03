@@ -89,22 +89,5 @@
 
       session.sessionRestore.restoreOpenApplicationsOnLogin = lib.mkDefault "startWithEmptySession";
     };
-
-    gtk = {
-      enable = true;
-      theme = lib.mkDefault {
-        name = "Breeze-Dark";
-        package = pkgs.kdePackages.breeze-gtk;
-      };
-      iconTheme = lib.mkDefault {
-        name = "breeze-dark";
-        package = pkgs.kdePackages.breeze-icons;
-      };
-    };
-
-    qt = {
-      enable = true;
-      platformTheme.name = lib.mkDefault "kde";
-    };
   };
 }
