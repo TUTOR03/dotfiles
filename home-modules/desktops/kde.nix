@@ -16,7 +16,9 @@
     programs.plasma = {
       enable = true;
 
-      shortcuts = lib.mkDefault { };
+      shortcuts = lib.mkDefault {
+        "KDE Keyboard Layout Switcher"."Switch to Next Keyboard Layout" = "Alt+Shift";
+      };
 
       workspace = {
         theme = lib.mkDefault "breeze-dark";
@@ -52,6 +54,19 @@
         }
       ];
 
+      input.keyboard = lib.mkDefault {
+        switchingPolicy = "global";
+        layouts = [
+          {
+            layout = "us";
+            displayName = "EN";
+          }
+          {
+            layout = "ru";
+            displayName = "RU";
+          }
+        ];
+      };
 
       kwin = {
         virtualDesktops = lib.mkDefault {
@@ -71,6 +86,8 @@
         "dolphinrc"."General"."RememberOpenedTabs" = lib.mkDefault false;
         "konsolerc"."TabBar"."TabBarPosition" = lib.mkDefault "Top";
       };
+
+      session.sessionRestore.restoreOpenApplicationsOnLogin = lib.mkDefault "startWithEmptySession";
     };
 
     gtk = {
