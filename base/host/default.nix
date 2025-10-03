@@ -13,5 +13,4 @@
   ];
 
   system.stateVersion = stateVersion;
-  home-manager.backupFileExtension = "backup";
 }
