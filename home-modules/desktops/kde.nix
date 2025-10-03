@@ -104,10 +104,7 @@
     qt = {
       enable = true;
       platformTheme.name = lib.mkDefault "kde";
-      style = lib.mkDefault {
-        name = "breeze";
-        package = pkgs.kdePackages.breeze;
-      };
+      style.name = lib.mkDefault "breeze";
     };
   };
 }
