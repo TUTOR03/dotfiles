@@ -1,3 +1,5 @@
 { ... }:
 
-{ }
+{
+  desktops.kde.enable = true;
+}
