@@ -1,24 +1,26 @@
 { config, lib, pkgs, ... }:
 {
   options = {
-    desktops.kde.enable = lib.mkEnableOption "Enables KDE Plasma user configuration";
+    desktops.kde = {
+      enable = lib.mkEnableOption "Enables KDE Plasma user configuration";
 
-    theme = lib.mkOption {
-      type = lib.types.str;
-      default = "breeze-dark";
-      description = "KDE theme name";
-    };
+      theme = lib.mkOption {
+        type = lib.types.str;
+        default = "breeze-dark";
+        description = "KDE theme name";
+      };
 
-    iconTheme = lib.mkOption {
-      type = lib.types.str;
-      default = "breeze-dark";
-      description = "Icon theme name";
-    };
+      iconTheme = lib.mkOption {
+        type = lib.types.str;
+        default = "breeze-dark";
+        description = "Icon theme name";
+      };
 
-    cursorTheme = lib.mkOption {
-      type = lib.types.str;
-      default = "breeze_cursors";
-      description = "Cursor theme name";
+      cursorTheme = lib.mkOption {
+        type = lib.types.str;
+        default = "breeze_cursors";
+        description = "Cursor theme name";
+      };
     };
   };
 
